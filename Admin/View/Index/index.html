@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title> 社区消息管理系统</title>
+    <link rel="stylesheet" href="/毕设/Public/layui/css/layui.css">
+    <link rel="stylesheet" href="/毕设/Public/Admin/css/font.css">
+	<link rel="stylesheet" href="/毕设/Public/Admin/css/weadmin.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">后台管理系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="https://avatar.csdnimg.cn/7/3/1/1_kwinway_1548857611.jpg" class="layui-nav-img">
+                    魏长锟
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退出登录</a></li>
+        </ul>
+    </div>
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <!-- 局部刷新-->
+            <ul  id="main" class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li  class="layui-nav-item layui-nav-itemed"
+                     data-id="mainPage">
+                    <a class="" href="javascript:; ">主页</a>
+                </li>
+                <li   class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:; ">用户管理中心</a>
+                    <dl id="userManange"  class="layui-nav-child" >
+                        <dd data-id="userIndex">
+                            <a href="javascript:;">用户首页</a>
+                        </dd>
+                        <dd data-id="add">
+                            <a href="javascript:;">添加用户</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+
+    <div id = "center"></div>
+    </div>
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © waykwin.com - 底部固定区域
+    </div>
+</div>
+<script src="/毕设/Public/layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    layui.use(['jquery', 'layer'], function() {
+        var $ = layui.$ //重点处
+            , layer = layui.layer;
+        layer.msg("欢迎来到管理系统");
+        $(function(){
+            //父菜单
+            $("#main").on("click", "li", function(){
+                var sId = $(this).data("id");  //获取data-id的值
+                window.location.hash = sId;  //设置锚点
+                loadInner();
+            });
+            //User子菜单(包含在父菜单中)
+            $("#userManange").on("click", "dd", function(e){
+                var sId = $(this).data("id");  //获取data-id的值
+                window.location.hash = sId;  //设置锚点
+                loadInner();
+                e.stopPropagation();//阻止事件冒泡 调了一天的bug
+            });
+            function loadInner(){
+                var sId = window.location.hash;
+                if(typeof(sID) == undefined)
+                {
+                  return ;
+                }
+                  console.log(sId);
+                var pathn;
+                switch(sId){
+                    case "#mainPage": pathn = "?c=Index&a=center";  break;
+                    case "#userIndex": pathn = "?c=User&a=Index";  break;
+                    case "#edit": pathn = "?c=User&a=edit";  break;
+                    case "#add": pathn = "?c=User&a=add";  break;
+
+                }
+                $("#center").load(pathn); //加载相对应的内容
+            }
+              //  var sId = window.location.hash;
+              //  loadInner(sId);
+        });
+
+    });// end layui.use
+/*
+         func(id)
+         {
+         swtich cast(id);
+       }
+
+*/
+</script>
+</body>
+</html>
