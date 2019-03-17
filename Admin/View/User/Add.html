@@ -1,6 +1,6 @@
  <div class="layui-row layui-admin lay-admin-up">
   <div class="layui-col-md5">
- <form class="layui-form" >
+ <form class="layui-form"  >
   <div class="layui-form-item">
     <label class="layui-form-label">用户名</label>
     <div class="layui-input-inline">
@@ -166,20 +166,25 @@ $('#name').blur(function(){
 
   //监听提交
   form.on('submit(addUser)', function(data){
-    a = JSON.stringify(data.field);
+      /*注意将数据打包为Json格式*/
+    userMsg = JSON.stringify(data.field);
     //layer.msg(a);
     $.ajax({
     url:'?c=User&a=addUser',
     type:'post',
     dataType:'text',// 数据返回的类型
-    data:{userRegInfo:a},
+    data:{userRegInfo:userMsg},
     success:function(retInfo){
       console.log(retInfo);
       if(retInfo == 1)
+      {
         layer.msg('增加用户成功,一秒后返回首页',{icon:1});
         window.setTimeout("javascript:location.href='?'", 1000);
+      }
       else
+      {
         layer.msg('增加用户失败',{icon:2});
+      }
     },
    });//end ajax
     return  false;

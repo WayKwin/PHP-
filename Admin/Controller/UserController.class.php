@@ -77,7 +77,7 @@ final class UserController extends BaseController{
       else
         echo 0;
     }
-    function getClientIP()
+    private function getClientIP()
     {
         global $ip;
         if (getenv("HTTP_CLIENT_IP"))
