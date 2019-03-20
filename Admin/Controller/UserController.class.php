@@ -60,10 +60,6 @@ final class UserController extends BaseController{
       $addate = date('Y-m-d h:i:s', time());
       $ip = $this->getClientIP();
       //在win7以上 localhost默认 ipv6显示模式
-      if($ip == '::1')
-      {
-        $ip = '127.0.0.1';
-      }
       $arr['last_login_ip'] = $ip;
       $arr['last_login_time'] = $addate;
       $arr['addate'] = $addate;
@@ -87,6 +83,10 @@ final class UserController extends BaseController{
         else if(getenv("REMOTE_ADDR"))
             $ip = getenv("REMOTE_ADDR");
         else $ip = "Unknow";
+        if($ip=="::1")
+        {
+            $ip="127.0.0.1";
+        }
         return $ip;
     }
 
@@ -98,6 +98,7 @@ final class UserController extends BaseController{
           $userObj = UserModel::getInstance();
           if($userObj->deleteById($id))
           {
+              //成功
             echo '1';
           }
           else
@@ -113,6 +114,56 @@ final class UserController extends BaseController{
     public function edit()
     {
         $this->smarty->display("Edit.html");
+    }
+    public function checkLogin()
+    {
+        //初始化返回信息
+        $retInfo = array(
+         "flag" =>"0",
+         "name" =>"null",
+        );
+        $msgData= $_POST['loginMsg'];
+        $arr = json_decode($msgData,$assoc=true);
+
+        $username = $arr['username'];
+        $password= $arr['password'];
+
+        $userObj = UserModel::getInstance();
+
+        //如果没查到 user  $user返回 bool false
+        $user = $userObj->fetchOne(" username='$username' AND password='$password' ");
+        // empty=false
+        //用户存在
+        if(!empty($user))
+        {
+            $data["last_login_ip"] =$this->getClientIP();
+            $data["last_login_time"] = date('Y-m-d h:i:s', time());
+            $data["login_times"] =$user["login_times"]+1;
+            $updateResult=$userObj->update($data,$user['id']);
+            //全部验证成功
+            if(!empty($updateResult))
+            {
+                $retInfo['flag'] = "1";
+                $retInfo['name'] = $user["name"] ;
+                $_SESSION['uid'] = $user['id'];
+                $_SESSION['name'] = $user['name'];
+            }
+            //更新失败
+            else
+            {
+                $retInfo['flag']="-2";
+            }
+        }
+        else
+        {
+           $retInfo['flag']="0";
+        }
+        $result = json_encode($retInfo);
+        echo $result;
+    }
+    public function login()
+    {
+        $this->smarty->display("Login.html");
     }
 }
 ?>

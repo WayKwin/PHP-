@@ -16,6 +16,7 @@
     private static  function initCharset()
     {
         header("content_type:text/html; charset=utf-8 ");
+        session_start();
     }
     private static function initConfig()
     {

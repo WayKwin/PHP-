@@ -11,6 +11,8 @@ require_once(ROOT_PATH."Frame".DS."Frame.class.php");
  //框架初始化 命名空间的路径用\
  Frame\Frame::run();
 
+ $captcha=new \Frame\Vendor\Captcha();
+
 
 
 

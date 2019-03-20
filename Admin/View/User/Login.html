@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base id="base" href="${base}">
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="./Public/Admin/Login/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./Public/Admin/Login/css/demo.css" /> <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="./Public/Admin/Login/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="./Public/layui/css/layui.css" />
+    <script type="text/javascript" src="./Public/jquery.min.js"></script>
+    <script type="text/javascript" src="./Public/layui/layui.js"></script>
+    <style type="text/css">
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            box-shadow:0 0 0 60px #60647a inset;
+            -webkit-text-fill-color: #878787;
+        }
+    </style>
+</head>
+<body>
+<div class="container demo-1">
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+            <div class="logo_box">
+                <h3>后台系统登录</h3>
+                <form  class = "layui-form" action="#" name="f" method="post">
+                        <div class="input_outer ">
+                            <span class="u_user"></span>
+                            <input name="username" class="text username"  lay-verify="checkLogin" style="color: #FFFFFF !important " type="text" placeholder="请输入账户">
+                        </div>
+                        <div class="input_outer">
+                            <span class="us_uer"></span>
+                            <input name="password" class="text" lay-verify="checkLogin" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
+                        </div>
+                    <div class="input_outer">
+                        <i class="layui-icon layui-icon-tips" style="font-size: 25px; position: absolute;  margin: 10px 13px; color:#FFFFFF"  ></i>
+                        <input name="password" class="text" lay-verify="checkLogin" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入验证码">
+                    </div>
+                    <div class="mb2">
+                        <button  lay-submit  lay-filter="login" class="layui-btn layui-btn-radius layui-btn-fluid">登录</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div><!-- /container -->
+<script src="./Public/Admin/Login/js/TweenLite.min.js"></script>
+<script src="./Public/Admin/Login/js/EasePack.min.js"></script>
+<script src="./Public/Admin/Login/js/rAF.js"></script>
+<script src="./Public/Admin/Login/js/demo-1.js"></script>
+</body>
+<script>
+    //加载弹出层组件
+    layui.use(['form','layer'],function(){
+
+        var layer = layui.layer;
+        var form = layui.form;
+        var $ = layui.$;
+        layui.form.render();
+        form.verify({
+            checkLogin:function(value)
+            {
+                if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+                    return '用户名或密码不能有特殊字符';
+                }
+                if(/(^\_)|(\__)|(\_+$)/.test(value)){
+                    return '用户名或密码首尾不能出现下划线\'_\'';
+                }
+                //if(/^\d+\d+\d$/.test(value)){
+                //    return '用户名或密码不能全为数字';
+                //}
+            }
+        });
+
+        form.on('submit(login)',function(data){
+            userMsg = JSON.stringify(data.field);
+            //layer.msg(userMsg);
+            $.ajax({
+                //此处的palt p参数不指定 pca就是  admin?c=User&a=Login?c=User&a=checkLoign
+                //所以得指定为admin.php
+               url:"admin.php?c=User&a=checkLogin",
+               type:"post",
+               dataType:"json",
+               data:{loginMsg:userMsg},
+                success:function(data)
+                {
+                    //要使用json 回带 登录成功后的昵称
+                    //data = JSON.stringify(data);
+                    //console.log(data.flag);
+                    if(data.flag=="-1")
+                    {
+                        layer.msg('您已登录，不能重复登录',{icon:2});
+                    }
+                    else if (data.flag =="0")
+                    {
+                        layer.msg('您的登录信息有误',{icon:2});
+                    }
+                    else if(data.flag=="1")
+                    {
+                        layer.msg('登录成功！,欢迎您 '+data.name+" ",{icon:6});
+                        console.log($.session.get("uid"));
+                        //window.setTimeout("javascript:location.href='admin.php'", 2000);
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</html>

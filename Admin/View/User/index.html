@@ -9,6 +9,7 @@
             <th lay-data="{field:'tel'}">电话</th>
             <th lay-data="{field:'last_login_ip'}">最后登录ip地址</th>
             <th lay-data="{field:'last_login_time'}">最后登录时间</th>
+            <th lay-data="{field:'login_times'}">登录次数</th>
             <th lay-data="{field:'status'}">账户状态</th>
             <th lay-data="{field:'role'}">管理权限</th>
             <th lay-data="{field:'addate'}">注册时间</th>
@@ -24,6 +25,7 @@
             <td><{$arr.tel}></td>
             <td><{$arr.last_login_ip}></td>
             <td><{$arr.last_login_time}></td>
+            <td><{$arr.login_times}></td>
             <td>
                 <{if $arr.status}>正常<{else}>封禁<{/if}>
             </td>
