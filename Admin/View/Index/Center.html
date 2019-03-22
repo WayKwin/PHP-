@@ -1,0 +1,126 @@
+<div class="layui-col-md12">
+			<blockquote class="layui-elem-quote">欢迎使用来到社区消息发布系统的后台！</blockquote>
+			<div class="layui-fluid" style="overflow: hidden;">
+				<div class="layui-row layui-col-space15">
+					<div class="layui-col-md12">
+						<div class="layui-card">
+							<div class="layui-card-header">
+                                说明
+								<i class="layui-icon" style="color: #FF5722;">&#xe756;</i>
+							</div>
+							<div class="layui-card-body layui-text ">
+								<p>本系统前台使用LayUI模块化设计，后台使用PHP</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+			<div class="layui-col-lg12 layui-collapse" style="border: none;">
+				<div class="layui-col-lg12 layui-col-md12">
+
+					<!--统计信息展示-->
+					<fieldset class="layui-elem-field" style="padding: 5px;">
+						<!--<legend>信息统计</legend>-->
+						<blockquote class="layui-elem-quote font16">信息统计</blockquote>
+						<div class="">
+							<table class="layui-table" lay-even>
+								<thead>
+									<tr>
+										<th>统计</th>
+										<th>帖子</th>
+										<th>图片库</th>
+										<th>产品库</th>
+										<th>用户</th>
+										<th>管理员</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>总数</td>
+										<td>92</td>
+										<td>9</td>
+										<td>0</td>
+										<td>8</td>
+										<td>20</td>
+									</tr>
+									<tr>
+										<td>今日</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>昨日</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>本周</td>
+										<td>2</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>本月</td>
+										<td>2</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="layui-table">
+								<thead>
+									<tr>
+										<th colspan="2" scope="col">服务器信息</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>服务器IP地址</td>
+										<td><{$smarty.server.REMOTE_ADDR}></td>
+									</tr>
+									<tr>
+										<td>身份过期时间</td>
+										<td><{ini_get("session.gc_maxlifetime")}>秒</td>
+									</tr>
+									<tr>
+										<td>服务器端口</td>
+										<td>80</td>
+									</tr>
+									<tr>
+										<td>本服务器所在文件夹 </td>
+										<td>D:\Web\</td>
+									</tr>
+									<tr>
+										<td>登录时间 </td>
+										<td ><{$smarty.now|date_format:'%Y年%m月%d日'}></td>
+									</tr>
+									<tr>
+										<td>服务器域名</td>
+										<td ><{$smarty.server.SERVER_NAME}></td>
+									</tr>
+									<tr>
+										<td>服务器配置环境</td>
+										<td ><{$smarty.server.SERVER_SOFTWARE}></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div style="clear: both;overflow: hidden; margin-top: 10px;">
+				<blockquote class="layui-elem-quote">
+                    感谢导师的耐心指导
+				</blockquote>
+			</div>

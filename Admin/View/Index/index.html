@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title> 社区消息管理系统</title>
     <link rel="stylesheet" href="./Public/layui/css/layui.css">
+    <!--<link rel="stylesheet" href="./Public/Admin/Lt/css/font.css">-->
+    <!--<link rel="stylesheet" href="./Public/Admin/Lt/css/weadmin.css">-->
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -15,14 +17,14 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="" class="layui-nav-img">
-                    魏长锟
+                    <{$name}>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退出登录</a></li>
+            <li class="layui-nav-item"><a href="admin.php?c=User&a=logout">退出登录</a></li>
         </ul>
     </div>
     <div class="layui-side layui-bg-black">
@@ -40,8 +42,19 @@
                         <dd data-id="userIndex">
                             <a href="javascript:;">用户首页</a>
                         </dd>
-                        <dd data-id="add">
+                        <dd data-id="addUser">
                             <a href="javascript:;">添加用户</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li   class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:; ">文章分类管理中心</a>
+                    <dl id="cateManange"  class="layui-nav-child" >
+                        <dd data-id="cateIndex">
+                            <a href="javascript:;">文章首页</a>
+                        </dd>
+                        <dd data-id="addCate">
+                            <a href="javascript:;">添加文章</a>
                         </dd>
                     </dl>
                 </li>
@@ -49,10 +62,8 @@
         </div>
     </div>
 
-    <div class="layui-body">
+    <div id = "center" class="layui-body">
 
-    <div id = "center"></div>
-    </div>
     <div class="layui-footer">
         <!-- 底部固定区域 -->
         © waykwin.com - 底部固定区域
@@ -82,6 +93,12 @@
                 loadInner();
                 e.stopPropagation();//阻止事件冒泡 调了一天的bug
             });
+            $("#cateManange").on("click", "dd", function(e){
+                var sId = $(this).data("id");  //获取data-id的值
+                window.location.hash = sId;  //设置锚点
+                loadInner();
+                e.stopPropagation();//阻止事件冒泡 调了一天的bug
+            });
             function loadInner(){
                 var sId = window.location.hash;
                 if(typeof(sID) == undefined)
@@ -93,8 +110,10 @@
                 switch(sId){
                     case "#mainPage": pathn = "?c=Index&a=center";  break;
                     case "#userIndex": pathn = "?c=User&a=Index";  break;
-                    case "#edit": pathn = "?c=User&a=edit";  break;
-                    case "#add": pathn = "?c=User&a=add";  break;
+                    case "#cateIndex": pathn = "?c=Category&a=index";  break;
+                    case "#editUser": pathn = "?c=User&a=edit";  break;
+                    case "#addUser": pathn = "?c=User&a=add";  break;
+                    case "#addCate": pathn = "?c=Category&a=add";  break;
 
                 }
                 $("#center").load(pathn); //加载相对应的内容

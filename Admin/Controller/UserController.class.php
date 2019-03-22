@@ -12,7 +12,7 @@ final class UserController extends BaseController{
         $userObj = UserModel::getInstance();
         $arrs = $userObj->fetchAll();
         $this->smarty->assign("arrs",$arrs);
-        $this->smarty->display("index.html");
+        $this->smarty->display("User/index.html");
     }
     public function checkUserName()
     {
@@ -51,7 +51,7 @@ final class UserController extends BaseController{
     public function add()
     {
 
-        $this->smarty->display("Add.html");
+        $this->smarty->display("User/Add.html");
     }
     public function addUser()
     {
@@ -113,7 +113,7 @@ final class UserController extends BaseController{
     }
     public function edit()
     {
-        $this->smarty->display("Edit.html");
+        $this->smarty->display("User/Edit.html");
     }
     public function checkLogin()
     {
@@ -163,7 +163,15 @@ final class UserController extends BaseController{
     }
     public function login()
     {
-        $this->smarty->display("Login.html");
+        $this->smarty->display("User/Login.html");
+    }
+    public function logout()
+    {
+        unset($_SESSION['uid']);
+        unset($_SESSION['name']);
+        session_destroy();
+        //setcookie(session_id(),false);
+        $this->jump("您已退出登录","admin.php?c=User&a=login",1);
     }
 }
 ?>

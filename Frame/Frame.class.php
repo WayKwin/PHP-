@@ -39,7 +39,7 @@
     private static function initConst()
     {
         //例如 ./home/View/Student/
-        define("VIEW_PATH"   ,APP_PATH."View".DS.CONTROLLER.DS);
+        define("VIEW_PATH"   ,APP_PATH."View".DS);
         define("FRAME_PATH",ROOT_PATH."Frame".DS);
     }
     /*

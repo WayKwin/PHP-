@@ -12,6 +12,13 @@
     //Frame类中请求分发中调用
     $this->initSmarty();
   }
+  protected  function denyAccess()
+  {
+     if(!isset($_SESSION['name']))
+     {
+         $this->jump("请登录","admin.php?c=User&a=Login",1);
+     }
+  }
 
   //私有的Smarty对象初始化
   private function initSmarty()
@@ -26,9 +33,11 @@
   }
   protected function jump($message,$url='?',$time=3)
   {
-    echo "<h2>{$message}</h2>";
-    header("refresh:{$time};url={$url}");
-    die();
+      $this->smarty->assign("message",$message);
+      $this->smarty->assign("url",$url);
+      $this->smarty->assign("time",$time);
+      $this->smarty->display("Public/jump.html");
+      die();
   }
 
 }

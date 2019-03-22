@@ -35,7 +35,7 @@
             <td><{$arr.addate}></td>
             <td>
                 <div class="layui-btn-group">
-                    <button class="layui-btn layui-btn-primary layui-btn-sm">
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="editUser(<{$arr.id}>)">
                         <i class="layui-icon">&#xe642;</i>
                     </button>
                     <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="deleteUser(<{$arr.id}>)">
@@ -49,8 +49,8 @@
 </table>
 <script src="/毕设/Public/jquery.min.js"></script>
 <script type="text/javascript">
-layui.use('table', function(){
 
+layui.use('table', function(){
 var table = layui.table;
 //转换静态表格
   table.init('userTable', {
@@ -83,6 +83,13 @@ var table = layui.table;
                   }
               }
           });
+      });
+  }
+  function editUser(id) {
+      layer.open({
+       type:2
+          ,area: ['500px', '500px']
+          ,content:"admin.php?c=User&a=edit"
       });
   }
 </script>

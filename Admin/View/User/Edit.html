@@ -1,1 +1,74 @@
-<h1>修改用户页面</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title> 社区消息管理系统</title>
+    <link rel="stylesheet" href="./Public/layui/css/layui.css">
+</head>
+<body>
+<div class="layui-col-md5">
+    <blockquote class="layui-elem-quote">请输入需要修改的信息,不需要修改的不填</blockquote>
+    <form class="layui-form"  >
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-inline">
+                <input type="text" id='username' name=" username" lay-verify="" placeholder="请输入用户名" autocomplete="off" class="layui-input"></input>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline" >
+                <input type="password" id='password' name="password" lay-verify="" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">确认密码</label>
+            <div class="layui-input-inline">
+                <input type="password" id='repassword' name="repassword" lay-verify="" placeholder="请再次输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-block">
+                <input type="text" id='name'  name="name" lay-verify="" placeholder="请输入昵称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系方式(tel)</label>
+            <div class="layui-input-block">
+                <input type="text" id='tel'  name="tel" lay-verify="" placeholder="请输入电话" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限</label>
+            <div class="layui-input-block">
+                <input type="radio" name="role" value="1" title="超级管理员">
+                <input type="radio" name="role" value="0" title="普通管理员" checked>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="editUser">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/毕设/Public/layui/layui.js"></script>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        form.render();
+        form.on('submit(editUser)',function(date)
+        {
+            layer.msg("逻辑和Add一样，暂未实现");
+            return false;
+        });
+    })
+</script>
+</body>

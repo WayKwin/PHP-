@@ -9,12 +9,16 @@ final class IndexController extends BaseController
 {
     public function Index()/*对应的action方法 对应 View/Index/index.html*/ {
         // 后台默认展示静态首页 ?c=Index&a=Index
-        $this->smarty->display("index.html");
+        $this->denyAccess();
+        $this->smarty->assign("name",$_SESSION['name']);
+        $this->smarty->display("Index/index.html");
         
     }
     public function Center()/*对应的action方法 对应 View/Index/index.html*/ {
         // 后台默认展示静态首页 ?c=Index&a=Index
-        $this->smarty->display("Center.html");
+
+
+        $this->smarty->display("Index/Center.html");
     }
 }
  ?>

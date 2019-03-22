@@ -35,10 +35,10 @@
                             <span class="us_uer"></span>
                             <input name="password" class="text" lay-verify="checkLogin" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
                         </div>
-                    <div class="input_outer">
-                        <i class="layui-icon layui-icon-tips" style="font-size: 25px; position: absolute;  margin: 10px 13px; color:#FFFFFF"  ></i>
-                        <input name="password" class="text" lay-verify="checkLogin" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入验证码">
-                    </div>
+                    <!--<div class="input_outer">-->
+                        <!--<i class="layui-icon layui-icon-tips" style="font-size: 25px; position: absolute;  margin: 10px 13px; color:#FFFFFF"  ></i>-->
+                        <!--<input name="password" class="text" lay-verify="checkLogin" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入验证码">-->
+                    <!--</div>-->
                     <div class="mb2">
                         <button  lay-submit  lay-filter="login" class="layui-btn layui-btn-radius layui-btn-fluid">登录</button>
                     </div>
@@ -102,8 +102,8 @@
                     else if(data.flag=="1")
                     {
                         layer.msg('登录成功！,欢迎您 '+data.name+" ",{icon:6});
-                        console.log($.session.get("uid"));
-                        //window.setTimeout("javascript:location.href='admin.php'", 2000);
+                        //console.log($.session.get("uid"));
+                        window.setTimeout("javascript:location.href='admin.php'", 2000);
                     }
                 }
             });

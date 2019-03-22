@@ -9,7 +9,7 @@ final class Captcha{
     private $img;
     private $fontSize;
     private $fontFile;
-    public function __construct($codeLenth=4,$width=80,$height=40,$fontSize=24)
+    public function __construct($codeLenth=4,$width=85,$height=40,$fontSize=24)
     {
 
         $this->codeLength=$codeLenth;
@@ -17,11 +17,13 @@ final class Captcha{
         $this->width=$width;
         $this->height=$height;
         $this->fontSize=$fontSize;
-        $this->fontFile="./Public/Admin/Images/msh.ttf";
+        //字体问题找msyth.ttf
+        $this->fontFile="/毕设/Public/Admin/VerifyCode/font/calibri.ttf";
+
         $this->img=$this->createImage();
-    //    $this->createBg();
-    //    $this->createText();
-    //    $this->outPut();
+        $this->createBg();
+        $this->createText();
+        $this->outPut();
     }
     private function createCode()
     {
@@ -51,9 +53,31 @@ final class Captcha{
     }
     private function createImage()
     {
+        return imagecreatetruecolor($this->width,$this->height);
+    }
+    private function createBg()
+    {
+        //背景颜色 每次都会随机颜色
+        $color=imagecolorallocate($this->img,mt_rand(0,225),mt_rand(0,200),mt_rand(0,255));
 
+        //矩形的颜色
+        imagefilledrectangle($this->img,0,0,$this->width,$this->height,$color);
     }
 
+    private function createText()
+    {
+        $color=imagecolorallocate($this->img,mt_rand(0,225),mt_rand(0,200),mt_rand(0,255));
+        imagettftext($this->img,$this->fontSize,0,5,30,$color,$this->fontFile,$this->code);
+
+    }
+    private function outPut()
+    {
+        echo  $this->fontFile;
+        //声明输出内容的MIME类型
+        //header("content-type:image/png");
+        //imagepng($this->img);
+        //imagedestroy($this->img);
+    }
 
 }
 
