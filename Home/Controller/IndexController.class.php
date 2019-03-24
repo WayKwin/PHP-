@@ -16,7 +16,7 @@ final class IndexController extends BaseController{
     $arrs  = $modeObj->fetchAll();
     $this->smarty->assign("arrs",$arrs);
     //目录在initSmarty中设置了viewPath
-    $this->smarty->display("index.html");
+    $this->smarty->display("Index/index.html");
   }
   public function delete()
   {

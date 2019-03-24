@@ -3,11 +3,9 @@ define('DS',DIRECTORY_SEPARATOR);//目录分隔符 统一 windows和linux的 ‘
 define('ROOT_PATH',getcwd().DS);//网站的根目录
 define('APP_PATH',ROOT_PATH.'Home'.DS);//应用目录  前台home 后台 admin
  // 包含头文件
-//require_once(ROOT_PATH."Frame".DS."Frame.class.php");
+require_once(ROOT_PATH."Frame".DS."Frame.class.php");
  //框架初始化 命名空间的路径用\
- //Frame\Frame::run();
- require_once ("./Frame/Vendor/Captcha.class.php");
- $captcha=new \Frame\Vendor\Captcha();
+Frame\Frame::run();
 
 
 

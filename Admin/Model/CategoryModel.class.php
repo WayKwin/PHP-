@@ -46,6 +46,26 @@ final class CategoryModel extends BaseModel
         //该分类下没有子分类，可以删除了
         $this->delete('id',$aimId);
     }
+    //获取 该类别和该类别下所有类别
+    public function Model_categoryGet($id)
+    {
+        $idArr=$this->query(array("id,pid"));
+        $categoryId = array();
+        $this->getAllId($idArr,$id,$categoryId);
+        return $categoryId;
+    }
+
+    private function getAllId($idArr,$aimId,&$categoryId)
+    {
+        foreach($idArr as $arr)
+        {
+            if($arr['pid']== $aimId)
+            {
+                $this->getAllId($idArr,$arr['id'],$categoryId);
+            }
+        }
+        array_push($categoryId,$aimId);
+    }
 
 }
 ?>

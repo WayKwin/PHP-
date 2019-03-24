@@ -14,11 +14,21 @@ final class ArticleController extends BaseController{
     {
         $cateObj =CategoryModel::getInstance();
         $data = $cateObj->fetchAll();
-        //对数据进行递归分类(dfs)
-        $data = CategoryModel::getInstance()->categoryList($data);
-        //print_r($data);
-        $this->smarty->assign("categorys",$data);
+        $categorys = CategoryModel::getInstance()->categoryList($data);
+        $articles=ArticleModel::getInstance()->fetchWithJoin($data);
 
+
+        $this->smarty->assign(array(
+            'categorys'=>$categorys,
+            'articles' =>$articles
+        ));
         $this->smarty->display("Article/index.html");
     }
+    public function selectClass()
+    {
+        $val = $_POST['val'];
+        $categoryId = CategoryModel::getInstance()->Model_categoryGet($val);
+
+    }
+
 }
