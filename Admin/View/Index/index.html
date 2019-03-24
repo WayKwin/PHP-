@@ -47,13 +47,24 @@
                         </dd>
                     </dl>
                 </li>
-                <li   class="layui-nav-item layui-nav-itemed">
+                <li  class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:; ">文章分类管理中心</a>
                     <dl id="cateManange"  class="layui-nav-child" >
                         <dd data-id="cateIndex">
-                            <a href="javascript:;">文章首页</a>
+                            <a href="javascript:;">文章类别</a>
                         </dd>
                         <dd data-id="addCate">
+                            <a href="javascript:;">添加文章类别</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li  class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:; ">文章管理中心</a>
+                    <dl id="articleManange"  class="layui-nav-child" >
+                        <dd data-id="articleIndex">
+                            <a href="javascript:;">文章列表</a>
+                        </dd>
+                        <dd data-id="addArticle">
                             <a href="javascript:;">添加文章</a>
                         </dd>
                     </dl>
@@ -63,6 +74,7 @@
     </div>
 
     <div id = "center" class="layui-body">
+
 
     <div class="layui-footer">
         <!-- 底部固定区域 -->
@@ -88,16 +100,22 @@
             });
             //User子菜单(包含在父菜单中)
             $("#userManange").on("click", "dd", function(e){
-                var sId = $(this).data("id");  //获取data-id的值
-                window.location.hash = sId;  //设置锚点
+                var sId = $(this).data("id");
+                window.location.hash = sId;
                 loadInner();
-                e.stopPropagation();//阻止事件冒泡 调了一天的bug
+                e.stopPropagation();
             });
             $("#cateManange").on("click", "dd", function(e){
-                var sId = $(this).data("id");  //获取data-id的值
-                window.location.hash = sId;  //设置锚点
+                var sId = $(this).data("id");
+                window.location.hash = sId;
                 loadInner();
-                e.stopPropagation();//阻止事件冒泡 调了一天的bug
+                e.stopPropagation();
+            });
+            $("#articleManange").on("click", "dd", function(e){
+                var sId = $(this).data("id");
+                window.location.hash = sId;
+                loadInner();
+                e.stopPropagation();
             });
             function loadInner(){
                 var sId = window.location.hash;
@@ -105,16 +123,16 @@
                 {
                   return ;
                 }
-                  console.log(sId);
                 var pathn;
                 switch(sId){
                     case "#mainPage": pathn = "?c=Index&a=center";  break;
                     case "#userIndex": pathn = "?c=User&a=Index";  break;
                     case "#cateIndex": pathn = "?c=Category&a=index";  break;
+                    case "#articleIndex": pathn = "?c=Article&a=index";  break;
                     case "#editUser": pathn = "?c=User&a=edit";  break;
                     case "#addUser": pathn = "?c=User&a=add";  break;
                     case "#addCate": pathn = "?c=Category&a=add";  break;
-
+                    case "#addArticle": pathn = "?c=Article&a=add";  break;
                 }
                 $("#center").load(pathn); //加载相对应的内容
             }
@@ -131,5 +149,6 @@
 
 */
 </script>
+</div>
 </body>
 </html>

@@ -3,7 +3,6 @@ namespace Admin\Controller;
 /*
 传入自动加载方法
 */
-
 use Admin\Model\UserModel;
 use \Frame\Libs\BaseController;
 final class UserController extends BaseController{
@@ -131,7 +130,8 @@ final class UserController extends BaseController{
         $userObj = UserModel::getInstance();
 
         //如果没查到 user  $user返回 bool false
-        $user = $userObj->fetchOne(" username='$username' AND password='$password' ");
+        $user = $userObj->fetchOne("username='$username' AND password='$password'");
+        //print_r($user);
         // empty=false
         //用户存在
         if(!empty($user))

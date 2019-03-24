@@ -1,61 +1,95 @@
-		<div class="weadmin-body">
-			<div class="layui-row">
-				<form class="layui-form layui-col-md12 we-search">
-					文章搜索：
-					<div class="layui-input-inline">
-						<select name="cateid">
-							<option>请选择分类</option>
-							<option>文章</option>
-							<option>会员</option>
-							<option>权限</option>
-						</select>
-					</div>
-					<div class="layui-inline">
-						<input class="layui-input" placeholder="开始日" name="start" id="start">
-					</div>
-					<div class="layui-inline">
-						<input class="layui-input" placeholder="截止日" name="end" id="end">
-					</div>
-					<div class="layui-inline">
-						<input type="text" name="keyword" placeholder="请输入关键字" autocomplete="off" class="layui-input">
-					</div>
-					<button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-				</form>
-			</div>
-			<div class="weadmin-block demoTable">
-				<button class="layui-btn layui-btn-danger" data-type="getCheckData"><i class="layui-icon">&#xe640;</i>批量删除</button>
-				<button class="layui-btn" data-type="Recommend"><i class="layui-icon">&#xe6c6;</i>推荐</button>
-				<button class="layui-btn" data-type="Top"><i class="layui-icon">&#xe619;</i>置顶</button>
-				<button class="layui-btn" data-type="Review"><i class="layui-icon">&#xe6b2;</i>审核</button>
-				<button class="layui-btn" onclick="WeAdminShow('添加用户','./add.html',600,400)"><i class="layui-icon">&#xe61f;</i>添加</button>
-				<span class="fr" style="line-height:40px">共有数据：88 条</span>
-			</div>
-			<table class="layui-hide" id="articleList"></table>
+<blockquote class="layui-elem-quote ">用户列表</blockquote>
+<div class="layui-card">
+    <div class="layui-card-header">
+        这里是
+        <i class="layui-icon" style="color: #FF5722;">&#xe756;</i>
+    </div>
+    <div class="layui-card-body layui-text ">
+        <p>不知道写什么</p>
+    </div>
+</div>
 
+<div class="lay-row">
+    <table class="layui-table" lay-filter="classTable">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id',sort:true}">id</th>
+            <th lay-data="{field:'classname'}">类别名</th>
+            <th lay-data="{field:'orderby',sort:true}">权重</th>
+            <th lay-data="{field:'articleNum',sort:true}">数量</th>
+            <th lay-data="{field:'operator'}">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+       <{foreach $categorys as $category}>
+        <tr>
+        <td><{$category.id}></td>
+        <td>
+            <{if $category.level > 0}>
+                 <!--html 只显示全角空格  -->
+            <{str_repeat("　",$category.level*1)}>|__ <{$category.classname}>
+            <{else}>
+            <{$category.classname}>
+            <{/if}>
+        </td>
+        <td><{$category.orderby}></td>
+        <td>100</td>
+        <td>
+            <div class="layui-btn-group">
+                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="editCategory(<{$category.id}>)">
+                    <i class="layui-icon">&#xe642;</i>
+                </button>
+                <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="delCategory(<{$category.id}>)">
+                    <i class="layui-icon">&#xe640;</i>
+                </button>
+            </div>
+        </td>
+        </tr>
+        <{/foreach}>
+        </tbody>
+    </table>
+    <script src="/毕设/Public/jquery.min.js"></script>
+    <script type="text/javascript">
 
-			<script type="text/html" id="recommendTpl">
-				<input type="checkbox" name="zzz" lay-skin="switch" lay-text="已推荐|未推荐" {{d.recommend}}>
-			</script>
-			<script type="text/html" id="topTpl">
-				<input type="checkbox" name="show" lay-skin="switch" lay-text="已置顶|未置顶" {{d.top}}>
-			</script>
-			<script type="text/html" id="reviewTpl">
-			  <!-- 这里的 checked 的状态只是演示 -->
-			  <input type="checkbox" name="lock" value="{{d.id}}" title="锁定" lay-filter="lockDemo" {{ d.id == 1 ? 'checked' : '' }}>
-			</script>
+        layui.use('table', function(){
+            var table = layui.table;
+//转换静态表格
+            table.init('classTable', {
+                height: 315 //设置高度
+                ,limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
+                //支持所有基础参数
+            });
+            table.render();
+        });
 
-			<script type="text/html" id="operateTpl">
-				<a title="编辑" onclick="WeAdminEdit('编辑','./edit.html', 2, 600, 400)" href="javascript:;">
-					<i class="layui-icon">&#xe642;</i>
-				</a>
-				<a title="查看" onclick="WeAdminShow('查看文章','./show.html',600,400)" href="javascript:;">
-					<i class="layui-icon">&#xe63c;</i>
-				</a>
-				<a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-					<i class="layui-icon">&#xe640;</i>
-				</a>
-			</script>
-			<script src="./Public/layui/layui.js" charset="utf-8"></script>
-			<script src="./Public/Admin/Lt/js/list.js" type="text/javascript" charset="utf-8"></script>
-		</div>
+    </script>
+    <script>
 
+        // ajax实现用户删除
+        function delCategory(id){
+                var url = "?c=Category&a=delCategory";
+                layer.confirm('您确定要删除该分类吗?',{btn: ['确定', '取消'],title:"提示"}, function(){
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: {id:id},
+                        dataType: "text",
+                        async:false,
+                        success:function(data) {
+                            console.log(data);
+                            if(data == 1){
+                                layer.msg('删除成功,1秒后跳转到首页', {icon: 1});
+                                window.setTimeout("javascript:location.href='?'", 1000);
+                                return true;
+                            }else{
+                                layer.msg('删除失败', {icon: 2});
+                            }
+                        }
+                    });
+                });
+        }
+        function editCategory(id) {
+            layer.msg("您点击了修改按钮");
+        }
+    </script>
+</div>
