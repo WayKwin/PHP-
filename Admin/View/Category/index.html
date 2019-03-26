@@ -68,7 +68,7 @@
         // ajax实现用户删除
         function delCategory(id){
                 var url = "?c=Category&a=delCategory";
-                layer.confirm('您确定要删除该分类吗?',{btn: ['确定', '取消'],title:"提示"}, function(){
+                layer.confirm('您确定要删除该分类吗,此操作会删除该分类下所有子分类和文章?',{btn: ['确定', '取消'],title:"提示"}, function(){
                     $.ajax({
                         type: "POST",
                         url: url,
@@ -76,7 +76,6 @@
                         dataType: "text",
                         async:false,
                         success:function(data) {
-                            console.log(data);
                             if(data == 1){
                                 layer.msg('删除成功,1秒后跳转到首页', {icon: 1});
                                 window.setTimeout("javascript:location.href='?'", 1000);

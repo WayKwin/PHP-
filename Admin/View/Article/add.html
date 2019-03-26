@@ -1,0 +1,110 @@
+<div class="layui-row">
+    <div class="layui-card">
+        <div class="layui-card-header">
+            文章列表
+            <i class="layui-icon" style="color: #FF5722;">&#xe756;</i>
+        </div>
+    </div>
+</div>
+<form class="layui-form layui-row" action="">
+    <div class="layui-form-item layui-col-md4">
+        <label class="layui-form-label">请选择文章分类</label>
+        <div class="layui-input-block">
+            <select  class = "layui-select-tips"name="category_id" lay-verify="required">
+                <{foreach $categorys as $category}>
+                <option value="<{$category.id}>"><{if $category.level > 0}><!--html 只显示全角空格  --><{str_repeat("　",$category.level*1)}>|_ <{$category.classname}> <{else}> <{$category.classname}> <{/if}></option>
+                <{/foreach}>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-col-md4">
+        <label class="layui-form-label">排序(数值越低权重越高)</label>
+        <div class="layui-input-block">
+            <input type="text" name="orderby" required  lay-verify="required"  value ="50" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-col-md4">
+        <div class="layui-form-item  ">
+            <label class="layui-form-label">文章标题</label>
+            <div class="layui-input-block ">
+                <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+            </div>
+            <label class="layui-form-label">是否置顶</label>
+            <input type="checkbox" name="top" lay-skin="switch"  lay-text="ON|OFF" >
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text layui-col-md12">
+        <label class="layui-form-label">文章内容</label>
+        <div class="layui-input-block">
+            <textarea id="content" name="content" lay-verify="" placeholder="请输入内容"  class="layui-textarea fly-editor" style="height: 150px;">
+            </textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="articleAdd">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+    </div>
+</form>
+
+</div>
+
+<script>
+    layui.use(['form','layedit','jquery','table'],function()
+    {
+        var form = layui.form;
+        var $ = layui.jquery;
+        var layedit=layui.layedit;
+        form.render();
+        var index = layedit.build('content',{
+        });
+        form.on('submit(articleAdd)',function(data)
+        {
+            //富文本编辑器内容用getContent才能获取到
+            var text = layedit.getContent(index);
+            data.field.content=text;
+
+            //莫名其妙多出来一个属性file,删除之
+            if(data.field.file !== undefined)
+            {
+               delete data.field.file;
+            }
+
+            //是否选了 置顶
+            if(data.field.top !== undefined) {
+                data.field.top = 1;
+            }else{
+               data.field.top=0;
+            }
+
+            //将json对象打包成字符串发送
+            var Msg = JSON.stringify(data.field);
+
+            $.ajax({
+                url:'?c=Article&a=addArticle',
+                type:'post',
+                dataType:'text',// 数据返回的类型
+                data:{data:Msg},
+                success:function(retInfo){
+                    //console.log(retInfo);
+                     if(retInfo == 1)
+                     {
+                         layer.msg('增加文章成功，1秒后返回',{icon:1});
+                         window.setTimeout("javascript:location.href='?'", 1000);
+                     }
+                     else
+                     {
+                         layer.msg('增加文章失败',{icon:2});
+                     }
+                },//end success
+            });//end ajax
+            //console.log(data.field);
+            return false;
+        });
+
+    });
+</script>

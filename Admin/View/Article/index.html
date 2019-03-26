@@ -31,6 +31,7 @@
             <th lay-data="{field:'title'}">标题</th>
             <th lay-data="{field:'content'}">内容</th>
             <th lay-data="{field:'author'}">作者</th>
+            <th lay-data="{field:'top'}">置顶</th>
             <th lay-data="{field:'operator'}">操作</th>
         </tr>
         <tbody>
@@ -44,11 +45,14 @@
             </td>
             <td><{$article.name}></td>
             <td>
+                <input type="checkbox"  lay-filter="top" name="switch" lay-skin="switch" value="1" >
+            </td>
+            <td>
                 <div class="layui-btn-group">
-                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="editCategory(<{$category.id}>)">
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="editArticle(<{$article.id}>)">
                         <i class="layui-icon">&#xe642;</i>
                     </button>
-                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="delCategory(<{$category.id}>)">
+                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="deleteArticle(<{$article.id}>)">
                         <i class="layui-icon">&#xe640;</i>
                     </button>
                 </div>
@@ -60,20 +64,48 @@
 
     </table>
 </div>
+<script src="/毕设/Public/jquery.min.js"></script>
 <script>
+    function editArticle(id)
+    {
+
+    }
+    function deleteArticle(id)
+    {
+        var url = "?c=Article&a=delArticle";
+        layer.confirm('您确定要删除该文章吗?',{btn: ['确定', '取消'],title:"提示"}, function(){
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {id:id},
+                dataType: "text",
+                async:false,
+                success:function(data) {
+                    if(data == 1){
+                        layer.msg('删除成功,1秒后跳转到首页', {icon: 1});
+                        window.setTimeout("javascript:location.href='?'", 1000);
+                        return true;
+                    }else{
+                        layer.msg('删除失败', {icon: 2});
+                    }
+                }
+            });
+        });
+    }
     layui.use(['form','jquery','table'],function()
     {
       var form = layui.form;
       var $ = layui.jquery;
       var table = layui.table;
-      form.render();
       table.init('articleTable', {
           height: 315 //设置高度
           ,limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
           //支持所有基础参数
       });
-       table.render();
-       form.on('select(classname)',function(data)
+        form.render();
+        table.render();
+
+        form.on('select(classname)',function(data)
         {
             var val = data.value;
             $.ajax({

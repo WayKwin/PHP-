@@ -14,6 +14,8 @@ final class CategoryController extends BaseController{
         $data = $cateObj->fetchAll();
         //对数据进行递归分类(dfs)
         $data = CategoryModel::getInstance()->categoryList($data);
+        // 0 是所有顶级文章的默认pid
+        $date['article_count']=CategoryModel::getInstance()->countArticle($data,0);
         //print_r($data);
         $this->smarty->assign("categorys",$data);
 

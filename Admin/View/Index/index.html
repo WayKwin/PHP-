@@ -90,7 +90,12 @@
     layui.use(['jquery', 'layer'], function() {
         var $ = layui.$ //重点处
             , layer = layui.layer;
-        layer.msg("欢迎来到管理系统");
+        var fristCome = true;
+        if(fristCome == true)
+        {
+            layer.msg("欢迎来到管理系统");
+            fristCome=false;
+        }
         $(function(){
             //父菜单
             $("#main").on("click", "li", function(){

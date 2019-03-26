@@ -49,13 +49,17 @@ use \Frame\Vendor\PDOWrapper;
      }
      public function insert($data)
      {
-         $str="";
+         $strKey="";
+         $strValue="";
          foreach($data as $key=>$value)
          {
-             $str.="'$value',";
+             $strKey.="$key,";
+             $strValue.="'$value',";
          }
-         $str=rtrim($str,",");
-         $sql =  "insert into {$this->table} values(NULL,$str)";
+         $strKey=rtrim($strKey,",");
+         $strValue=rtrim($strValue,",");
+
+         $sql =  "insert into {$this->table} (id,$strKey) values(NULL,$strValue)";
          return $this->pdo->exec($sql);
      }
      public function delete($col,$val)

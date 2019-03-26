@@ -4,6 +4,7 @@ use \Frame\Libs\BaseModel;
 final class CategoryModel extends BaseModel
 {
     protected $table = "category";
+    protected $aritcleTable="article";
     public function categoryList($arrs,$level=0,$pid=0)
     {
         static $category = array();
@@ -43,8 +44,15 @@ final class CategoryModel extends BaseModel
                 $this->delAllId($idArr,$arr['id']);
             }
         }
-        //该分类下没有子分类，可以删除了
+        //该分类下没有子分类，1.先删除该分类下所有文章，再删除该分类
+        $this->deleteArticleByCategoryId($aimId);
         $this->delete('id',$aimId);
+    }
+    private function deleteArticleByCategoryId($id)
+    {
+        $sql = "Delete From {$this->aritcleTable} where category_id=$id";
+        //执行失败表示该分类下没有文章
+        $this->pdo->exec($sql);
     }
     //获取 该类别和该类别下所有类别
     public function Model_categoryGet($id)
@@ -65,6 +73,27 @@ final class CategoryModel extends BaseModel
             }
         }
         array_push($categoryId,$aimId);
+    }
+    public function countArticle($idArr,$aimId)
+    {
+       static $artCountArr = array();
+
+       foreach($idArr as $arr)
+       {
+           if($arr['pid']== $aimId)
+           {
+               $artCountArr[$aimId]=$this->countArticle($idArr,$arr['id']);
+           }
+       }
+       $artCountArr[$aimId] = $this->fetchAllAticle($aimId);
+        return $artCountArr[$aimId];
+    }
+    private function fetchAllAticle($id)
+    {
+        $sql = "SELECT COUNT(*) From {$this->aritcleTable} WHERE category_id = $id ";
+        echo $sql;
+        return;
+        $this->pdo-exec($sql);
     }
 
 }
