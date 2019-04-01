@@ -74,6 +74,7 @@ final class CategoryModel extends BaseModel
         }
         array_push($categoryId,$aimId);
     }
+    /**/
     public function countArticle($idArr,$aimId)
     {
        static $artCountArr = array();
@@ -82,11 +83,11 @@ final class CategoryModel extends BaseModel
        {
            if($arr['pid']== $aimId)
            {
-               $artCountArr[$aimId]=$this->countArticle($idArr,$arr['id']);
+
+               $arr['articleCount']=$this->countArticle($idArr,$arr['id']);
            }
        }
-       $artCountArr[$aimId] = $this->fetchAllAticle($aimId);
-        return $artCountArr[$aimId];
+        return $this->fetchAllAticle($aimId);
     }
     private function fetchAllAticle($id)
     {

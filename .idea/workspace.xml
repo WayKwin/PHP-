@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d5cc041-72ac-4165-9fa4-2eea75be779f" name="Default Changelist" comment="&quot;save innerhtml&quot;">
+      <change afterPath="$PROJECT_DIR$/Frame/Vendor/paper.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/Controller/ArticleController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/Controller/ArticleController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/Controller/CategoryController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/Controller/CategoryController.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/Model/CategoryModel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/Model/CategoryModel.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/View/Article/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/Article/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/View/Article/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/Article/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/View/Category/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/Category/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/View/Category/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/Category/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/View/Index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/Index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frame/Libs/BaseModel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frame/Libs/BaseModel.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/View/User/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/User/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,22 +38,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Admin/Controller/CategoryController.class.php">
+        <entry file="file://$PROJECT_DIR$/Admin/View/Article/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="1107">
+              <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
               <folding>
-                <element signature="e#68#99#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Admin/Model/CategoryModel.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -80,7 +67,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Admin/View/Test/index.html" />
         <option value="$PROJECT_DIR$/Admin/View/Test/center.html" />
         <option value="$PROJECT_DIR$/Admin/View/Common/left.html" />
         <option value="$PROJECT_DIR$/Admin/Controller/CommonController.class.php" />
@@ -116,7 +102,6 @@
         <option value="$PROJECT_DIR$/Admin/View/User/Add.html" />
         <option value="$PROJECT_DIR$/Admin/View/User/Login.html" />
         <option value="$PROJECT_DIR$/Admin/View/User/ww.sql" />
-        <option value="$PROJECT_DIR$/Admin/View/User/index.html" />
         <option value="$PROJECT_DIR$/Admin/Model/ArticleModel.class.php" />
         <option value="$PROJECT_DIR$/Home/View/Index/index.html" />
         <option value="$PROJECT_DIR$/Home/Controller/IndexController.class.php" />
@@ -127,17 +112,18 @@
         <option value="$PROJECT_DIR$/Frame/Libs/BaseModel.class.php" />
         <option value="$PROJECT_DIR$/Admin/View/Category/add.html" />
         <option value="$PROJECT_DIR$/Admin/Controller/ArticleController.class.php" />
-        <option value="$PROJECT_DIR$/Admin/View/Category/index.html" />
-        <option value="$PROJECT_DIR$/Admin/View/Article/index.html" />
         <option value="$PROJECT_DIR$/Admin/Controller/CategoryController.class.php" />
         <option value="$PROJECT_DIR$/Admin/Model/CategoryModel.class.php" />
+        <option value="$PROJECT_DIR$/Frame/Vendor/paper.class.php" />
+        <option value="$PROJECT_DIR$/Admin/View/Category/index.html" />
+        <option value="$PROJECT_DIR$/Admin/View/User/index.html" />
+        <option value="$PROJECT_DIR$/Admin/View/Article/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="977" />
+    <option name="x" value="951" />
+    <option name="width" value="978" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -148,8 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,25 +150,61 @@
               <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
               <item name="毕设" type="462c0819:PsiDirectoryNode" />
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
               <item name="毕设" type="462c0819:PsiDirectoryNode" />
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Category" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553593597231" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553862509114" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/layuiCMS-master/layuiCMS-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -261,17 +281,24 @@
       <workItem from="1553426145471" duration="3209000" />
       <workItem from="1553429403336" duration="6102000" />
       <workItem from="1553512959256" duration="1370000" />
-      <workItem from="1553567222857" duration="20481000" />
+      <workItem from="1553567222857" duration="21205000" />
+      <workItem from="1553603276589" duration="1937000" />
+      <workItem from="1553660257076" duration="834000" />
+      <workItem from="1553735816030" duration="594000" />
+      <workItem from="1553856374369" duration="4169000" />
+      <workItem from="1554035744790" duration="1734000" />
+      <workItem from="1554103225424" duration="473000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156070000" />
+    <option name="totallyTimeSpent" value="166485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19772118" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2841823" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -345,21 +372,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Frame/Vendor/PDOWrapper.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <folding>
-            <element signature="e#66#75#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/User/table.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/VerifyCode/font/simfang.ttf">
-      <provider selected="true" editor-type-id="fontseditor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/Admin/VerifyCode/font/calibri.ttf">
       <provider selected="true" editor-type-id="fontseditor" />
     </entry>
@@ -374,13 +386,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Tips.html" />
-    <entry file="file://$PROJECT_DIR$/Admin/Controller/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/前端模版/fly-3.0/fly-3.0/html/other/notice.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -451,16 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#49#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/json/json.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -517,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/User/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="96" column="7" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin/View/User/Add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3402">
@@ -568,24 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Controller/CommonController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/Article/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#form#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frame/Libs/BaseModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -593,30 +563,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/Category/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin/Model/ArticleModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/Index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -630,10 +580,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/Article/index.html">
+    <entry file="file://$PROJECT_DIR$/Admin/Controller/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        <state relative-caret-position="168">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Controller/CommonController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#49#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Conf/Config.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frame/Vendor/paper.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/User/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/Common/c.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Model/CategoryModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Controller/CategoryController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding>
+            <element signature="e#68#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/Article/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/Category/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -642,27 +674,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/View/Category/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+        <state relative-caret-position="1239">
+          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Model/CategoryModel.class.php">
+    <entry file="file://$PROJECT_DIR$/Admin/View/Article/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Controller/CategoryController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        <state relative-caret-position="477">
+          <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
           <folding>
-            <element signature="e#68#99#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
