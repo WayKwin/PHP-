@@ -6,7 +6,7 @@
   'db_type'  => 'mysql',
   'db_port' => '3306',
   'db_host' => 'localhost',
-  'db_name' => 'student',
+  'db_name' => 'bbs',
   'db_user' => 'waykwin',
   'db_password' =>'123456',
   /* PDO创建 字符集不识别 utf-8 去掉 '-'*/

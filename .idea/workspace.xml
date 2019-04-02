@@ -5,12 +5,154 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d5cc041-72ac-4165-9fa4-2eea75be779f" name="Default Changelist" comment="&quot;save innerhtml&quot;">
-      <change afterPath="$PROJECT_DIR$/Frame/Vendor/paper.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Home/Model/ArticleModel.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Home/Model/CategoryModel.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Home/View/common/content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/Model/CategoryModel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/Model/CategoryModel.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/Controller/ArticleController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/Controller/ArticleController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/Model/ArticleModel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/Model/ArticleModel.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Admin/View/Article/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/Article/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/View/Category/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/Category/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/View/User/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/View/User/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frame/Libs/BaseController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frame/Libs/BaseController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/Conf/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Home/Conf/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/Controller/IndexController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Home/Controller/IndexController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/Model/IndexModel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Home/Model/IndexModel.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/View/Index/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/css/full.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/css/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/css/iconfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/css/iconfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/css/iconfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/css/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/avatar/default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/case.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/fly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/logo-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/other/1437100018023.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/other/study-a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/images/weixin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/layui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/layui.mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/code.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/laydate/default/laydate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/layer/default/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/layer/default/layer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/font/iconfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/font/iconfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/font/iconfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/font/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/10.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/11.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/12.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/13.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/14.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/15.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/17.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/18.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/19.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/20.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/21.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/22.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/23.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/24.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/25.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/26.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/27.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/28.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/29.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/30.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/31.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/32.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/33.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/34.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/35.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/36.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/37.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/38.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/39.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/40.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/41.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/42.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/43.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/44.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/45.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/46.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/47.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/48.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/49.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/5.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/50.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/51.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/52.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/53.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/54.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/55.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/56.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/57.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/58.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/59.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/6.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/60.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/61.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/62.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/63.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/64.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/65.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/66.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/67.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/68.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/69.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/7.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/70.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/71.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/8.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/images/face/9.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/code.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/element.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/flow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/laydate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/layedit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/layer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/laypage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/laytpl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/mobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/tree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/upload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/lay/modules/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/layui.all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/layui/layui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/mods/case.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/mods/face.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/mods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/mods/jie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/Fly/mods/user.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,18 +180,38 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Admin/View/Article/index.html">
+        <entry file="file://$PROJECT_DIR$/Home/View/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1107">
-              <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
+            <state relative-caret-position="462">
+              <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
               <folding>
-                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#dl#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home/Controller/IndexController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
+              <folding>
+                <element signature="e#48#79#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -67,18 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Admin/View/Test/center.html" />
-        <option value="$PROJECT_DIR$/Admin/View/Common/left.html" />
-        <option value="$PROJECT_DIR$/Admin/Controller/CommonController.class.php" />
-        <option value="$PROJECT_DIR$/Admin/View/User/center.html" />
-        <option value="$PROJECT_DIR$/Admin/View/Common/main.html" />
-        <option value="$PROJECT_DIR$/Admin/Conf/Config.php" />
-        <option value="$PROJECT_DIR$/Admin/View/User/test.html" />
-        <option value="$PROJECT_DIR$/Admin/View/Common/top.html" />
-        <option value="$PROJECT_DIR$/Admin/View/Common/c.html" />
-        <option value="$PROJECT_DIR$/Admin/View/Common/index.html" />
-        <option value="$PROJECT_DIR$/Admin/View/Index/center.html" />
-        <option value="$PROJECT_DIR$/Admin/Model/IndexModel.class.php" />
         <option value="$PROJECT_DIR$/Admin/View/User/UserLogin.html" />
         <option value="$PROJECT_DIR$/Admin/Controller/LoginController.php" />
         <option value="$PROJECT_DIR$/Public/Admin/Login/css/demo.css" />
@@ -88,7 +238,6 @@
         <option value="$PROJECT_DIR$/Public/Tips.html" />
         <option value="$PROJECT_DIR$/Frame/Frame.class.php" />
         <option value="$PROJECT_DIR$/Admin/View/Public/notice.html" />
-        <option value="$PROJECT_DIR$/Frame/Libs/BaseController.class.php" />
         <option value="$PROJECT_DIR$/Public/Admin/Lt/css/weadmin.css" />
         <option value="$PROJECT_DIR$/Public/Admin/Lt/css/weadmin.less" />
         <option value="$PROJECT_DIR$/Admin/Controller/IndexController.class.php" />
@@ -102,28 +251,41 @@
         <option value="$PROJECT_DIR$/Admin/View/User/Add.html" />
         <option value="$PROJECT_DIR$/Admin/View/User/Login.html" />
         <option value="$PROJECT_DIR$/Admin/View/User/ww.sql" />
-        <option value="$PROJECT_DIR$/Admin/Model/ArticleModel.class.php" />
         <option value="$PROJECT_DIR$/Home/View/Index/index.html" />
-        <option value="$PROJECT_DIR$/Home/Controller/IndexController.class.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Admin/View/Index/index.html" />
         <option value="$PROJECT_DIR$/Admin/View/Article/add.html" />
         <option value="$PROJECT_DIR$/Admin/Controller/UserController.class.php" />
         <option value="$PROJECT_DIR$/Frame/Libs/BaseModel.class.php" />
         <option value="$PROJECT_DIR$/Admin/View/Category/add.html" />
-        <option value="$PROJECT_DIR$/Admin/Controller/ArticleController.class.php" />
         <option value="$PROJECT_DIR$/Admin/Controller/CategoryController.class.php" />
         <option value="$PROJECT_DIR$/Admin/Model/CategoryModel.class.php" />
         <option value="$PROJECT_DIR$/Frame/Vendor/paper.class.php" />
         <option value="$PROJECT_DIR$/Admin/View/Category/index.html" />
         <option value="$PROJECT_DIR$/Admin/View/User/index.html" />
+        <option value="$PROJECT_DIR$/Frame/Libs/BaseController.class.php" />
         <option value="$PROJECT_DIR$/Admin/View/Article/index.html" />
+        <option value="$PROJECT_DIR$/Admin/Model/ArticleModel.class.php" />
+        <option value="$PROJECT_DIR$/Admin/Controller/ArticleController.class.php" />
+        <option value="$PROJECT_DIR$/Home/View/common/header.html" />
+        <option value="$PROJECT_DIR$/Home/View/common/footer.html" />
+        <option value="$PROJECT_DIR$/Home/Model/IndexModel.class.php" />
+        <option value="$PROJECT_DIR$/Home/Model/CategoryController.class.php" />
+        <option value="$PROJECT_DIR$/Home/Model/CategoryModel.class.php" />
+        <option value="$PROJECT_DIR$/Home/Conf/Config.php" />
+        <option value="$PROJECT_DIR$/Home/View/jie/index.html" />
+        <option value="$PROJECT_DIR$/Home/View/common/column.html" />
+        <option value="$PROJECT_DIR$/Home/View/common/filter.html" />
+        <option value="$PROJECT_DIR$/Home/View/common/content.html" />
+        <option value="$PROJECT_DIR$/Home/Model/Article.class.php" />
+        <option value="$PROJECT_DIR$/Home/View/index.html" />
+        <option value="$PROJECT_DIR$/Home/Controller/IndexController.class.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -134,6 +296,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,62 +314,63 @@
               <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
               <item name="毕设" type="462c0819:PsiDirectoryNode" />
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
+              <item name="毕设" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
               <item name="毕设" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Article" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
               <item name="毕设" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Category" type="462c0819:PsiDirectoryNode" />
+              <item name="jie" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
               <item name="毕设" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
-              <item name="毕设" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
-              <item name="毕设" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="毕设" type="b2602c69:ProjectViewProjectNode" />
-              <item name="毕设" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
+              <item name="Public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553862509114" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/layuiCMS-master/layuiCMS-master" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554216167451" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/前端模版/fly-3.0/fly-3.0" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -215,16 +380,17 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\毕设\Public\Home" />
+      <recent name="D:\wamp64\www\毕设\Admin\View\Public" />
+      <recent name="D:\wamp64\www\毕设\Admin\View\Index" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\毕设\Public\Admin\VerifyCode\font" />
       <recent name="D:\wamp64\www\毕设\Admin\View\User" />
       <recent name="D:\wamp64\www\毕设\Public\Admin" />
       <recent name="D:\wamp64\www\毕设\Admin\View\Common" />
       <recent name="D:\wamp64\www\毕设\Admin\View\Test" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\wamp64\www\毕设\Admin\View\Public" />
-      <recent name="D:\wamp64\www\毕设\Admin\View\Index" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -287,18 +453,18 @@
       <workItem from="1553735816030" duration="594000" />
       <workItem from="1553856374369" duration="4169000" />
       <workItem from="1554035744790" duration="1734000" />
-      <workItem from="1554103225424" duration="473000" />
+      <workItem from="1554103225424" duration="21885000" />
+      <workItem from="1554188266681" duration="23443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166485000" />
+    <option name="totallyTimeSpent" value="211390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2841823" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1816354" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -372,112 +538,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Public/Admin/VerifyCode/font/calibri.ttf">
-      <provider selected="true" editor-type-id="fontseditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/VerifyCode/font/STHUPO.TTF">
-      <provider selected="true" editor-type-id="fontseditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frame/Vendor/Captcha.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-146">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Tips.html" />
-    <entry file="file://$USER_HOME$/Desktop/前端模版/fly-3.0/fly-3.0/html/other/notice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/CSS/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Fly/css/full.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-573" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frame/Frame.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frame/Vendor/Smarty.class.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/css/weadmin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="421" column="38" lean-forward="true" selection-start-line="421" selection-start-column="38" selection-end-line="421" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/css/font.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/images/aiwrap.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/images/bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/images/mapico1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/images/mapico2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/images/mapico3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/images/mapico4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Admin/Lt/css/weadmin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="377" column="29" selection-start-line="377" selection-start-column="29" selection-end-line="377" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/Public/jump.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/json/json.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="126" column="9" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frame/Libs/BaseController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/Index/Center.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -489,13 +553,6 @@
             <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Model/UserModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -525,58 +582,10 @@
     <entry file="file://$PROJECT_DIR$/admin.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home/View/Index/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/Controller/IndexController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin/View/Category/edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-84">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Controller/UserController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frame/Libs/BaseModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Model/ArticleModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Controller/ArticleController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
-          <folding>
-            <element signature="e#121#151#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -624,32 +633,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/User/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin/View/Common/c.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Model/CategoryModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/Controller/CategoryController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="e#68#99#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/View/Article/add.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -662,9 +647,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/User/table.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/Category/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="39" column="35" lean-forward="true" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Controller/CategoryController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding>
+            <element signature="e#68#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/User/test.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/Index/Center.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/View/User/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Model/UserModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frame/Libs/BaseModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Admin/View/Category/add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
+        <state relative-caret-position="399">
           <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -672,22 +722,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/View/Category/index.html">
+    <entry file="file://$PROJECT_DIR$/Home/View/case/case.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/res/mods/case.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1239">
-          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
+        <state>
           <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/user/forget.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2919">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/common/link.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/common/user-nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/common/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/Conf/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/jie/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1890" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frame/Libs/BaseController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Controller/ArticleController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="e#121#151#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Model/CategoryModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-672">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/common/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/View/Article/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
+        <state relative-caret-position="249">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/Model/CategoryModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/Model/IndexModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/common/column.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/jie/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="349" column="29" selection-start-line="349" selection-start-column="29" selection-end-line="349" selection-end-column="29" />
+          <folding>
+            <element signature="n#dl#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/Model/ArticleModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/Model/ArticleModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/common/filter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/common/content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="e#48#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/View/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#dl#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

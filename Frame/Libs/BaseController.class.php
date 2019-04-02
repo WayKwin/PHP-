@@ -39,6 +39,18 @@
       $this->smarty->display("Public/jump.html");
       die();
   }
+  protected function retJsonMsg($code,$msg,$count,$data)
+  {
+      $retArr=array(
+       "code"=>$code
+      ,"msg"=>$msg
+      ,"count"=>$count
+      ,"data"=>$data
+      );
+      $retJson =json_encode($retArr);
+      header('Content-Type:application/json; charset=utf-8');
+      echo $retJson;
+  }
 
 }
  ?>

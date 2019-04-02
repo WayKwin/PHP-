@@ -15,14 +15,52 @@ final class ArticleController extends BaseController{
         $cateObj =CategoryModel::getInstance();
         $data = $cateObj->fetchAll();
         $categorys = CategoryModel::getInstance()->categoryList($data);
-        $articles=ArticleModel::getInstance()->fetchWithJoin($data);
-
-
-        $this->smarty->assign(array(
-            'categorys'=>$categorys,
-            'articles' =>$articles
-        ));
+        $this->smarty->assign("categorys",$categorys);
         $this->smarty->display("Article/index.html");
+    }
+    public function showTable()
+    {
+
+        //分页显示
+        $page = $_GET['page'];
+        $pageSize = $_GET['pageSize'];
+        //当前页的开始字段
+        $cur = ($page-1)*$pageSize;
+        $where="2>1 ";
+        //选择新闻类别
+        if(!empty($_GET['classid']))
+        {
+            $categoryId = CategoryModel::getInstance()->Model_categoryGet($_GET['classid']);
+            $where .= "AND category_id in (";
+            foreach($categoryId as $arr)
+            {
+                $where .= "{$arr},";
+            }
+            $where = trim($where,',');
+            $where .= ') ';
+        }
+        //标题搜索
+        if(!empty($_GET['keyword']))
+        {
+            $where.="AND title LIKE '%{$_GET['keyword']}%' ";
+        }
+
+        $articles=ArticleModel::getInstance()->fetchWithJoin($where,$cur,$pageSize);
+        $dataArr=array();
+        foreach($articles as $arr)
+        {
+            $dataArr[]=array(
+             "id"=>$arr['id']
+            ,'classname'=>$arr['classname']
+            ,'title'=>$arr['title']
+            ,'content'=>$arr['content']
+            ,'author'=>$arr['name']
+            ,'addate'=>$arr['addate']
+            ,'top'=>$arr['top']
+            );
+        }
+        $count = $articles=ArticleModel::getInstance()->Count($where);
+        $this->retJsonMsg(0,"",$count,$dataArr);
     }
     // 选中某分类  找出其和其子分类
     public function add()
@@ -60,22 +98,12 @@ final class ArticleController extends BaseController{
         $articleMsg['comment_count'] = 0;
         $articleMsg['praise'] = 0;
         $articleMsg['addate'] = date('Y-m-d h:i:s', time());
-//        print_r($articleMsg);
-//        die();
         if(ArticleModel::getInstance()->insert($articleMsg))
         {
             echo 1;
         }else{
             echo 0;
         }
-    }
-    public function selectClass()
-    {
-        $val = $_POST['val'];
-        $categoryId = CategoryModel::getInstance()->Model_categoryGet($val);
-        $this->smarty->assign(array(
-            'categorys'=>$categoryId,
-        ));
     }
     public function delArticle()
     {

@@ -1,0 +1,17 @@
+
+<div class="fly-panel-title fly-filter">
+
+  <a href="?l1=<{$fatherId}>&l2=<{$fatherId}>" class="layui-this">首页</a>
+  <{foreach $sonCategorys as $category}>
+  <a href="?l1=<{$fatherId}>&l2=<{$category.id}>" class="layui-this"><{$category.classname}></a>
+  <span class="fly-mid"></span>
+  <{/foreach}>
+  <span class="fly-filter-right layui-hide-xs">
+    <a href="" class="layui-this">按最新</a>
+    <span class="fly-mid"></span>
+    <a href="">按热议</a>
+  </span>
+</div>
+<script>
+
+</script>

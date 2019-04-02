@@ -4,26 +4,92 @@ namespace Home\Controller;
 传入自动加载方法
 */
 use \Frame\Libs\BaseController;
-use \Home\Model\IndexModel;/*引入首页模型类*/
+use \Home\Model\CategoryModel;/*引入首页模型类*/
 final class IndexController extends BaseController{
-    //一个控制器目录对应一个视图目录
-   // Index控制器目录对应Index视图目录， index控制器类中包含很多action方法， 每个action(add)对应 view/index/add.html
   public function Index() /*对应的action()方法*/
   {
-    //创建模型层对象  //注意参数是字符窜， 类要加上空间+类名
-    $modeObj =  IndexModel::getInstance();
-   //拉取后台数据
-    $arrs  = $modeObj->fetchAll();
-    $this->smarty->assign("arrs",$arrs);
-    //目录在initSmarty中设置了viewPath
-    $this->smarty->display("Index/index.html");
+     $categoryId=0;
+     if(!empty($_GET['category']))
+     {
+        $categoryId = $_GET['category'];
+     }
+     $this->smarty->display("index.html");
   }
-  public function delete()
+  public function getCategory()
   {
-    $id = $_GET['id'];
-    echo $id;
-    $this->jump("删除成功","?c=Index");
-   // 创建模型类，  模型类中实现  deleteById的方法
+      $cateObj =CategoryModel::getInstance();
+      $data = $cateObj->fetchAll();
+      $categorys = CategoryModel::getInstance()->categoryList($data);
+      $fatherCategorys = array();
+      foreach($categorys as $arr)
+      {
+          if($arr['level'] == 0)
+          {
+              $fatherCategorys[] = $arr;
+          }
+      }
+      $fatherCategorys=json_encode($fatherCategorys);
+      echo $fatherCategorys;
+
   }
+  public function showHeader()
+  {
+      $this->smarty->display("common/header.html");
+  }
+    public function showColumn()
+    {
+        $cateObj =CategoryModel::getInstance();
+        $data = $cateObj->fetchAll();
+        $categorys = CategoryModel::getInstance()->categoryList($data);
+        $fatherCategorys = array();
+        foreach($categorys as $arr)
+        {
+            if($arr['level'] == 0)
+            {
+                $fatherCategorys[] = $arr;
+            }
+        }
+        $this->smarty->assign("fatherCategorys",$fatherCategorys);
+        $this->smarty->display("common/column.html");
+    }
+    public function showFilter()
+    {
+
+        $categoryId = 0;
+        //获取当前选中的父级分类
+        if(!empty($_GET['l1']))
+        {
+            $categoryId = $_GET['l1'];
+        }
+        $cateObj =CategoryModel::getInstance();
+        $data = $cateObj->fetchAll();
+        $categorys = CategoryModel::getInstance()->categoryList($data);
+        $sonCategorys = array();
+        foreach($categorys as $arr)
+        {
+            if($arr['pid'] == $categoryId)
+            {
+                $sonCategorys[] = $arr;
+            }
+        }
+
+        $this->smarty->assign("fatherId",$categoryId);
+        $this->smarty->assign("sonCategorys",$sonCategorys);
+        $this->smarty->display("common/filter.html");
+    }
+    public function showContent()
+    {
+        $categoryId = 0;
+        if(!empty($_GET['l2']))
+        {
+            $categoryId = $_GET['l2'];
+        }
+        $this->smarty->display("common/content.html");
+
+    }
+    public function showFooter()
+    {
+        $this->smarty->display("common/footer.html");
+    }
 }
  ?>

@@ -12,115 +12,137 @@
         <div class="layui-input-inline">
             <select name="classname" lay-filter="classname">
                  <!--option必须一行 ,否则内容会偏移-->
-                <option value = -1>请选择分类</option>
+                <option value = 0>请选择分类</option>
                 <{foreach $categorys as $category}>
                 <option value="<{$category.id}>"><{if $category.level > 0}><!--html 只显示全角空格  --><{str_repeat("　　",$category.level*1)}><{$category.classname}> <{else}> <{$category.classname}> <{/if}></option>
                 <{/foreach}>
             </select>
         </div>
         <div class="layui-inline">
-            <input type="text" name="keyword" placeholder="请输入关键字" autocomplete="off" class="layui-input">
+            <input type="text" name="keyword" placeholder="请输入标题关键字" autocomplete="off" class="layui-input">
         </div>
-        <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+        <button class="layui-btn" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
     </form>
-    <table class="layui-table"  lay-filter="articleTable">
-        <thead>
-        <tr>
-            <th lay-data="{field:'id',sort:true}">id</th>
-            <th lay-data="{field:'classname',sort:true}">分类</th>
-            <th lay-data="{field:'title'}">标题</th>
-            <th lay-data="{field:'content'}">内容</th>
-            <th lay-data="{field:'author'}">作者</th>
-            <th lay-data="{field:'addTime'}">发帖时间</th>
-            <th lay-data="{field:'top'}">置顶</th>
-            <th lay-data="{field:'operator'}">操作</th>
-        </tr>
-        <tbody>
-        <{foreach $articles as $article }>
-        <tr>
-            <td><{$article.id}></td>
-            <td><{$article.classname}></td>
-            <td><{$article.title}></td>
-            <td>
-                <{$article.content}>
-            </td>
-            <td><{$article.name}></td>
-            <td><{$article.addate}></td>
-            <td>
-                <input type="checkbox"  lay-filter="top" name="switch" lay-skin="switch" value="1" >
-            </td>
-            <td>
-                <div class="layui-btn-group">
-                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="editArticle(<{$article.id}>)">
-                        <i class="layui-icon">&#xe642;</i>
-                    </button>
-                    <button class="layui-btn layui-btn-primary layui-btn-sm" onclick="deleteArticle(<{$article.id}>)">
-                        <i class="layui-icon">&#xe640;</i>
-                    </button>
-                </div>
-            </td>
-        </tr>
-        <{/foreach}>
-        </tbody>
-        </thead>
-
+    <table id="articleTable" class="layui-table"  lay-filter="articleTable">
     </table>
 </div>
 <script src="/毕设/Public/jquery.min.js"></script>
+
+<!--表格的工具条-->
+<script type="text/html" id="tableBar">
+    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+    <button class="layui-btn layui-btn-sm" lay-event="edit">编辑</button>
+</script>
+<script type="text/html" id="top">
+
+</script>
+
 <script>
-    function editArticle(id)
-    {
-
+    var articleTable;
+    var selectForm;
+    var options = {
+        elem:'#articleTable',
+        page:true,
+        limit:10,
+        //变换url的名字
+        // 将limitName变为pageSize
+        request:{
+            'limitName':'pageSize'
+        },
+        url: 'admin.php?c=Article&a=showTable',
+        cols:[[
+            {field:'id',title:'文章ID',sort:true}
+            ,{field:'classname',title:'文章类别',sort:true}
+            ,{field:'title',title:'文章标题'}
+            ,{field:'content',title:'文章内容',}
+            ,{field:'author',title:'文章作者',}
+            ,{field:'addate',title:'添加时间',}
+            //toolbar
+            ,{field:'operator',title:'操作',toolbar:"#tableBar"}
+        ]]
+        // parseData:function(res){
+        //     return {
+        //         code:res.stauts=='successs'?1:0,
+        //         msg:res.stauts,
+        //         count:count,
+        //         data:res.articleList
+        //
+        //     }
+        // }
     }
-    function deleteArticle(id)
+    layui.use('table',function()
     {
-        var url = "?c=Article&a=delArticle";
-        layer.confirm('您确定要删除该文章吗?',{btn: ['确定', '取消'],title:"提示"}, function(){
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: {id:id},
-                dataType: "text",
-                async:false,
-                success:function(data) {
-                    if(data == 1){
-                        layer.msg('删除成功,1秒后跳转到首页', {icon: 1});
-                        window.setTimeout("javascript:location.href='?'", 1000);
-                        return true;
-                    }else{
-                        layer.msg('删除失败', {icon: 2});
-                    }
-                }
-            });
+        var table = layui.table;
+        articleTable=table.render(options);
+        //新增的监听工具栏事件 layui2.4
+        table.on('tool(articleTable)',function(obj){
+            console.log(obj);
+            if(obj.event=== 'delete')
+            {
+                layer.confirm(
+                    '您确定要删除该文章['+obj.data.title+']吗?',{
+                    title:'删除文章'
+                    ,btn:['确认','取消']
+                },function(index){
+                    $.ajax({
+                        type: "POST",
+                        url: "admin.php?c=Article&a=delArticle",
+                        data: {id:obj.data.id},
+                        dataType: "text",
+                        async:false,
+                        success:function(data){
+                            console.log(data);
+                            if(data == 1){
+                                layer.msg('删除成功',{icon: 1});
+                            }else{
+                                layer.msg('删除失败', {icon: 2});
+                            }
+                        }
+                        }).then(function(){
+                        layer.close(index);
+                        articleTable.reload({
+                            page:{
+                                cur:1
+                            }
+                        })
+                    })
+                })
+            }else if(obj.event== 'edit') {
+                layer.msg("您点击了修改按钮");
+            }
         });
-    }
-    layui.use(['form','jquery','table'],function()
+    })
+    layui.use('form',function()
     {
-      var form = layui.form;
-      var $ = layui.jquery;
-      var table = layui.table;
-      table.init('articleTable', {
-          height: 315 //设置高度
-          ,limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
-          ,page:true
-          //支持所有基础参数
-      });
-        form.render();
-        table.render();
-
-        form.on('select(classname)',function(data)
-        {
-            var val = data.value;
-            $.ajax({
-                url:'admin.php?c=Article&a=selectClass',
-                type:'post',
-                dataType:'text',// 数据返回的类型
-                data:{val:val},
-                success:function (data) {
-                    console.log(data);
+        var form = layui.form;
+        selectForm = form.render();
+        form.on('select(classname)',function(data){
+            console.log(data.value);
+            articleTable.reload({
+                url:"admin.php?c=Article&a=showTable"
+                ,where:{
+                    classid: data.value,
                 }
-            });//end ajax
-        });
+                ,page:{
+                    cur:1
+                }
+            })
+        })
+        form.on('submit(search)',function(data){
+            console.log(data.field);
+            articleTable.reload({
+                url:"admin.php?c=Article&a=showTable"
+                ,where:{
+                    classid: data.field.classname
+                    ,keyword: data.field.keyword
+                }
+                ,page:{
+                    cur:1
+                }
+            })
+            return false;
+        })
+    })
 
-    });
+
 </script>

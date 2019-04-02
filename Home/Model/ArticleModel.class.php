@@ -12,14 +12,14 @@ final class ArticleModel extends BaseModel
     protected $table = "article";
     public function  fetchWithJoin($where="2>1",$cur=0,$pageSize=10)
     {
-       $sql = "select article.*,category.classname,user.name from `$this->table` ";
-                           //注意拼接 id 后留一个空格！！！
-       $sql.="LEFT JOIN `category` on article.category_id=category.id ";
-       $sql.="LEFT JOIN `user` on article.user_id=user.id ";
-       $sql.= "WHERE {$where} ";
-       $sql.="ORDER BY article.id DESC ";
-       $sql.="limit $cur,$pageSize";
-       return $this->pdo->fetchAll($sql);
+        $sql = "select article.*,category.classname,user.name from `$this->table` ";
+        //注意拼接 id 后留一个空格！！！
+        $sql.="LEFT JOIN `category` on article.category_id=category.id ";
+        $sql.="LEFT JOIN `user` on article.user_id=user.id ";
+        $sql.= "WHERE {$where} ";
+        $sql.="ORDER BY article.id DESC ";
+        $sql.="limit $cur,$pageSize";
+        return $this->pdo->fetchAll($sql);
     }
     public function Count($where)
     {
@@ -32,4 +32,3 @@ final class ArticleModel extends BaseModel
 
     }
 }
-
