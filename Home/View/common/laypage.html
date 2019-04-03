@@ -1,0 +1,21 @@
+<div id="page" class="layui-col-lg-offset2">
+</div>
+<script>
+
+    layui.use(['laypage','jquery'], function(){
+        var laypage = layui.laypage;
+        var $ = layui.$;
+        //执行一个laypage实例
+        laypage.render({
+            elem: 'page'
+            ,count:<{$totalArticle}>
+                ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+                ,jump: function(obj,first){
+                if(!first) {
+                //获取参数
+                $("#content").load("?&a=showContent&cate=<{$cate}>"+"&cur="+obj.curr+"&pageSize="+obj.limit)
+                }
+            }
+                });
+            })
+</script>

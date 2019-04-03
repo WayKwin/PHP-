@@ -5,6 +5,14 @@ final class CategoryModel extends BaseModel
 {
     protected $table = "category";
     protected $aritcleTable="article";
+    //分类和分类下的文章数
+    public function fetchAllWithCount()
+    {
+        $sql = "SELECT category.*,count(article.id) as records FROM {$this->table} ";
+        $sql .="LEFT JOIN article ON category.id=article.category_id ";
+        $sql .= "GROUP BY category.id";
+        return $this->pdo->fetchAll($sql);
+    }
     public function categoryList($arrs,$level=0,$pid=0)
     {
         static $category = array();

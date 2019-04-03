@@ -2,7 +2,7 @@
   <div class="layui-container">
     <ul class="layui-clear">
       <{foreach $fatherCategorys as $category}>
-      <li class="layui-hide-xs layui-this"><a href="?l1=<{$category.id}>&l2=<{$category.id}>"> <{$category.classname}></a></li>
+      <li class="layui-hide-xs layui-this"><a href="javascript:sonCate(<{$category.id}>)"> <{$category.classname}></a></li>
       <{/foreach}>
       <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
       <!-- 用户登入后显示 -->
@@ -19,3 +19,12 @@
     </div> 
   </div>
 </div>
+<script>
+    function sonCate(id)
+    {
+        console.log("father:"+id);
+        $("#filter").load("?a=showFilter&cate="+id);
+        $("#top").load("?a=showTop&cate="+id);
+    }
+
+</script>

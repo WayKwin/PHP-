@@ -1,9 +1,9 @@
 
 <div class="fly-panel-title fly-filter">
 
-  <a href="?l1=<{$fatherId}>&l2=<{$fatherId}>" class="layui-this">首页</a>
+  <a href="javascript:showContent(<{$fatherId}>)" class="layui-this">首页</a>
   <{foreach $sonCategorys as $category}>
-  <a href="?l1=<{$fatherId}>&l2=<{$category.id}>" class="layui-this"><{$category.classname}></a>
+  <a href="javascript:showContent(<{$category.id}>)" class="layui-this"><{$category.classname}></a>
   <span class="fly-mid"></span>
   <{/foreach}>
   <span class="fly-filter-right layui-hide-xs">
@@ -13,5 +13,11 @@
   </span>
 </div>
 <script>
+function showContent(id)
+{
+    console.log("son: "+id);
+    $("#content").load("?a=showContent&cate="+id);
+    $("#laypage").load("?a=showLaypage&cate="+id)
 
+}
 </script>

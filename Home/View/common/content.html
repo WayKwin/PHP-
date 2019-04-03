@@ -1,32 +1,57 @@
-<ul class="fly-list">
+
+
+<{if $articles eq null}>
+<div class="fly-none">还没有帖子，成为第一个发帖的人吧!</div>
+<{else}>
+<ul  id  = "cate" class="fly-list">
+    <{foreach $articles as $arr}>
     <li>
-        <a href="user/home.html" class="fly-avatar">
-            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt="贤心">
+        <!--用户头像-->
+        <a href="?c=User&a=home" class="fly-avatar">
+            <img src="<{$arr.img}>" alt="<{$arr.username}>">
         </a>
         <h2>
-            <a class="layui-badge">分享</a>
-            <a href="detail.html">基于 layui 的极简社区页面模版</a>
+            <!--细分类-->
+            <a class="layui-badge"><{$arr.classname}></a>
+             <!--帖子名 -->
+            <a href="?c=Article&article_id="><{$arr.title}></a>
         </h2>
-        <div class="fly-list-info">
-            <a href="user/home.html" link>
-                <cite>贤心</cite>
-                <!--
-                <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
-                <i class="layui-badge fly-badge-vip">VIP3</i>
-                -->
-            </a>
-            <span>刚刚</span>
 
-            <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> 60</span>
+        <div class="fly-list-info">
+            <a href="?c=User&a=home" link>
+                <!--用户名-->
+                <cite><{$arr.username}></cite>
+                 <!--smarty判断用户属性-->
+
+                <!-- 判断是否有认证信息-->
+                <{if $arr.confirm eq null}>
+                <{else}>
+                <i class="iconfont icon-renzheng" title="<{$arr.confirm}>"></i>
+                <{/if}>
+                <i class="layui-badge fly-badge-vip">VIP3</i>
+            </a>
+            <!--发帖时间 ,用smary判断一下时间 显示刚刚-->
+
+            <span><{$arr.addate}></span>
+
+            <!--<span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> 60</span>-->
             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
             <span class="fly-list-nums">
-                <i class="iconfont icon-pinglun1" title="回答"></i> 66
-              </span>
+                <i class="iconfont icon-pinglun2" title="回复数"></i> <{$arr.comment_count}>
+                <i class="iconfont icon-caina" title="点击数"></i> <{$arr.read_count}>
+            </span>
         </div>
+
         <div class="fly-list-badge">
+            <!--smarty判断帖子属性-->
+            <{if $arr.top == 1}>
             <span class="layui-badge layui-bg-black">置顶</span>
-            <!--<span class="layui-badge layui-bg-red">精帖</span>-->
+            <{/if}>
+            <{if $arr.praise >= 0 }>
+            <span class="layui-badge layui-bg-red">精帖</span>
+            <{/if}>
         </div>
     </li>
-
+    <{/foreach}>
 </ul>
+<{/if}>
