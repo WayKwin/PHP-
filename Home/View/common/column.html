@@ -5,9 +5,12 @@
       <li class="layui-hide-xs layui-this"><a href="javascript:sonCate(<{$category.id}>)"> <{$category.classname}></a></li>
       <{/foreach}>
       <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
-      <!-- 用户登入后显示 -->
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html">我发表的贴</a></li>
+
+      <{if !isset($smarty.session.user)}>
+      <{else}>
+      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block layui-col-lg-offset4"><a href="../user/index.html">我发表的贴</a></li>
       <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html#collection">我收藏的贴</a></li>
+        <{/if}>
     </ul>
     
     <div class="fly-column-right layui-hide-xs"> 
@@ -23,8 +26,8 @@
     function sonCate(id)
     {
         console.log("father:"+id);
-        $("#filter").load("?a=showFilter&cate="+id);
-        $("#top").load("?a=showTop&cate="+id);
+        $("#filter").load("?c=Index&a=showFilter&cate="+id);
+        $("#top").load("?c=Index&a=showTop&cate="+id);
     }
 
 </script>

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>基于 layui 的极简社区页面模版</title>
+  <title>Welcome ^^</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="fly,layui,前端社区">
   <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
@@ -74,7 +74,6 @@
   $("#content").load("?a=showContent");
   $("#laypage").load("?a=showLaypage");
   $("#footer").load("?c=Index&a=showFooter");
-
 layui.cache.page = '';
 layui.cache.user = {
   username: '游客'
@@ -83,14 +82,7 @@ layui.cache.user = {
   ,experience: 83
   ,sex: '男'
 };
-layui.config({
-  version: "3.0.0"
-  ,base: './Public/Home/Fly/mods/' //这里实际使用时，建议改成绝对路径
-}).extend({
-  fly: 'index'
-}).use('fly');
 </script>
-
 
 </body>
 </html>

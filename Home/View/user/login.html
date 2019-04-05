@@ -6,92 +6,50 @@
   <title>登入</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="fly,layui,前端社区">
-  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
-  <link rel="stylesheet" href="../../res/layui/css/layui.css">
-  <link rel="stylesheet" href="../../res/css/global.css">
+  <!--<meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">-->
+  <link rel="stylesheet" href="./Public/Home/Fly/layui/css/layui.css">
+  <link rel="stylesheet" href="./Public/Home/Fly/css/global.css">
 </head>
 <body>
 
-<div class="fly-header layui-bg-black">
-  <div class="layui-container">
-    <a class="fly-logo" href="/">
-      <img src="../../res/images/logo.png" alt="layui">
-    </a>
-    <ul class="layui-nav fly-nav layui-hide-xs">
-      <li class="layui-nav-item layui-this">
-        <a href="/"><i class="iconfont icon-jiaoliu"></i>交流</a>
-      </li>
-      <li class="layui-nav-item">
-        <a href="../case/case.html"><i class="iconfont icon-iconmingxinganli"></i>案例</a>
-      </li>
-      <li class="layui-nav-item">
-        <a href="http://www.layui.com/" target="_blank"><i class="iconfont icon-ui"></i>框架</a>
-      </li>
-    </ul>
-    
-    <ul class="layui-nav fly-nav-user">
-      <!-- 未登入的状态 -->
-      <li class="layui-nav-item">
-        <a class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
-      </li>
-      <li class="layui-nav-item">
-        <a href="user/login.html">登入</a>
-      </li>
-      <li class="layui-nav-item">
-        <a href="user/reg.html">注册</a>
-      </li>
-      <li class="layui-nav-item layui-hide-xs">
-        <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
-      </li>
-      <li class="layui-nav-item layui-hide-xs">
-        <a href="/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" title="微博登入" class="iconfont icon-weibo"></a>
-      </li>
-    </ul>
-  </div>
-</div>
-
+<div id = "header"></div>
 <div class="layui-container fly-marginTop">
   <div class="fly-panel fly-panel-user" pad20>
     <div class="layui-tab layui-tab-brief" lay-filter="user">
       <ul class="layui-tab-title">
         <li class="layui-this">登入</li>
-        <li><a href="reg.html">注册</a></li>
+        <li><a href="?c=User&a=reg">注册</a></li>
       </ul>
-      <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+      <div class="layui-form layui-tab-content" lay-filter="login" id="LAY_ucm" style="padding: 20px 0;">
         <div class="layui-tab-item layui-show">
           <div class="layui-form layui-form-pane">
             <form method="post">
               <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">邮箱</label>
+                <label  class="layui-form-label">账号</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="text"  name="username" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
               <div class="layui-form-item">
                 <label for="L_pass" class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="pass" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="password" id="L_pass" name="password" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
               <div class="layui-form-item">
-                <label for="L_vercode" class="layui-form-label">人类验证</label>
+                <label for="L_vercode" class="layui-form-label">验证码</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
+                  <input type="text" id="L_vercode" name="vercode" lay-verify="" placeholder="请求出极限" autocomplete="off" class="layui-input">
                 </div>
-                <div class="layui-form-mid">
-                  <span style="color: #c00;">{{d.vercode}}</span>
+                <div class="layui-form-mid ">
+                  <span style="color: #c00;"> <img src="./Public/img/vercode.jpg"  height="40"  ></span>
                 </div>
               </div>
               <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="*" lay-submit>立即登录</button>
+                <button class="layui-btn" lay-filter="login" lay-submit>立即登录</button>
                 <span style="padding-left:20px;">
-                  <a href="forget.html">忘记密码？</a>
+                  <a href="javascript:layer.msg('那就忘了吧 ^ ^',{icon:6})">忘记密码？</a>
                 </span>
-              </div>
-              <div class="layui-form-item fly-form-app">
-                <span>或者使用社交账号登入</span>
-                <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a>
-                <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
               </div>
             </form>
           </div>
@@ -101,17 +59,68 @@
   </div>
 </div>
 
-<div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
-  <p>
-    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
-    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
-  </p>
-</div>
+<div id="footer"></div>
 
-<script src="../../res/layui/layui.js"></script>
+<script src="./Public/Home/Fly/layui/layui.js"></script>
+<script src="./Public/jquery.min.js"></script>
 <script>
+    $("#header").load("?c=User&a=showHeader");
+
+    layui.use(['form','layer'],function(){
+        var layer = layui.layer;
+        var form = layui.form;
+        var $ = layui.$;
+        layui.form.render();
+        form.verify({
+            checkLogin:function(value)
+            {
+                if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+                    return '用户名或密码不能有特殊字符';
+                }
+                if(/(^\_)|(\__)|(\_+$)/.test(value)){
+                    return '用户名或密码首尾不能出现下划线\'_\'';
+                }
+                //if(/^\d+\d+\d$/.test(value)){
+                //    return '用户名或密码不能全为数字';
+                //}
+            }
+        });
+
+        form.on('submit(login)',function(data){
+            delete data.field.vercode;
+            userMsg = JSON.stringify(data.field);
+            //layer.msg(userMsg);
+            $.ajax({
+                //此处的palt p参数不指定 pca就是  admin?c=User&a=Login?c=User&a=checkLoign
+                //所以得指定为admin.php
+                url:"index.php?c=User&a=checkLogin",
+                type:"post",
+                dataType:"json",
+                data:{loginMsg:userMsg},
+                success:function(data)
+                {
+                    //要使用json 回带 登录成功后的昵称
+                    //data = JSON.stringify(data);
+                    console.log(data);
+                    if(data.flag=="-1")
+                    {
+                        layer.msg('您已登录，不能重复登录',{icon:2});
+                    }
+                    else if (data.flag =="0")
+                    {
+                        layer.msg('您的登录信息有误',{icon:2});
+                    }
+                    else if(data.flag=="1")
+                    {
+                        layer.msg('登录成功！欢迎您, '+data.name+",即将返回登录前页面 ",{icon:6});
+                        // 登录成功后回到跳转前的页面
+                        window.setTimeout("javascript:location.href=document.referrer", 2000);
+                    }
+                }
+            });
+            return false;
+        });
+    });
 layui.cache.page = 'user';
 layui.cache.user = {
   username: '游客'
@@ -120,12 +129,6 @@ layui.cache.user = {
   ,experience: 83
   ,sex: '男'
 };
-layui.config({
-  version: "3.0.0"
-  ,base: '../../res/mods/'
-}).extend({
-  fly: 'index'
-}).use('fly');
 </script>
 
 </body>

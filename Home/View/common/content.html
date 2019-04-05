@@ -7,18 +7,18 @@
     <{foreach $articles as $arr}>
     <li>
         <!--用户头像-->
-        <a href="?c=User&a=home" class="fly-avatar">
+        <a href="?c=User&user_id=<{$arr.user_id}>" class="fly-avatar">
             <img src="<{$arr.img}>" alt="<{$arr.username}>">
         </a>
         <h2>
             <!--细分类-->
             <a class="layui-badge"><{$arr.classname}></a>
              <!--帖子名 -->
-            <a href="?c=Article&article_id="><{$arr.title}></a>
+            <a href="?c=Article&article_id=<{$arr.id}>" target="_blank" ><{$arr.title}></a>
         </h2>
 
         <div class="fly-list-info">
-            <a href="?c=User&a=home" link>
+            <a href="?c=User&user_id=<{$arr.user_id}>" link>
                 <!--用户名-->
                 <cite><{$arr.username}></cite>
                  <!--smarty判断用户属性-->
@@ -28,7 +28,11 @@
                 <{else}>
                 <i class="iconfont icon-renzheng" title="<{$arr.confirm}>"></i>
                 <{/if}>
-                <i class="layui-badge fly-badge-vip">VIP3</i>
+
+                <{if $arr.points < 100}>
+                <{else}>
+                <i class="layui-badge fly-badge-vip">VIP</i>
+                <{/if}>
             </a>
             <!--发帖时间 ,用smary判断一下时间 显示刚刚-->
 
