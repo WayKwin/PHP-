@@ -13,8 +13,10 @@
    }
    public function deleteById($id)
    {
-     $sql = "DELETE FROM {$this->table} WHERE id=$id";
-      return $this->pdo->exec($sql);
+     $sql1 = "DELETE FROM {$this->table} WHERE id=$id";
+     $sql2 = "DELETE FROM `user_info` WHERE user_id=$id";
+     $sql3 = "DELETE FROM 'article' WHERE user_id = $id";
+      return $this->pdo->exec($sql1) && $this->pdo->exec($sql2) && $this->pdo->exec($sql3);
    }
    public function insertUser($arr)
    {
@@ -29,7 +31,21 @@
       $addate = $arr['addate'];
       $login_times = $arr['login_times'];
       $sql="INSERT INTO {$this->table} values(NULL,'$username','$password','$name','$tel','$last_login_ip','$last_login_time','$login_times','$status','$role','$addate')";
-      return $this->pdo->exec($sql);
+      if( $this->pdo->exec($sql))
+      {
+         return  $this->addUser_Info($username);
+      }
+      else
+      {
+          return 0;
+      }
+   }
+   public function addUser_Info($username)
+   {
+       $result = $this->pdo->fetchOne( "select id from $this->table where  username='$username'");
+       $id = $result['id'];
+       $sql =  " INSERT INTO `user_info` values ('$id','https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg',NULL,'100')";
+       return $this->pdo->exec($sql);
    }
 
  }

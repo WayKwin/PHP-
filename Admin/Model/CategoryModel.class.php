@@ -92,11 +92,10 @@ final class CategoryModel extends BaseModel
     private function fetchAllAticle($id)
     {
         $sql = "SELECT COUNT(*) From {$this->aritcleTable} WHERE category_id = $id ";
-        echo $sql;
+        // echo $sql;
         return;
         $this->pdo-exec($sql);
     }
 
 }
 ?>
-

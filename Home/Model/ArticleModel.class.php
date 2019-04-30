@@ -35,6 +35,22 @@ final class ArticleModel extends BaseModel
         $sql.= "WHERE article.id=$id ";
         return $this->pdo->fetchOne($sql);
     }
+     public function addReadCount($id)
+    {
+        $sql = "UPDATE $this->table set read_count=read_count+1 WHERE id=$id";
+        return $this->pdo->exec($sql);
+    }
+    public function addReplyCount($id)
+    {
+        $sql = "UPDATE $this->table set comment_count=comment_count+1 WHERE id=$id";
+        return $this->pdo->exec($sql);
+    }
+    public function deleteReplyCount($id)
+    {
+        $sql = "UPDATE $this->table set comment_count=comment_count-1 WHERE id=$id";
+        return $this->pdo->exec($sql);
+
+    }
     //获取该文章所有的回复
     public function fetchAllReply($article_id,$cur=0,$pageSize=10,$orderBy="reply.addate")
     {
@@ -47,13 +63,8 @@ final class ArticleModel extends BaseModel
         $sql.="ORDER BY {$orderBy} ";
         $sql.="limit $cur,$pageSize ";
         return $this->pdo->fetchAll($sql);
-
     }
 
-    public function addCount($article_id)
-    {
-
-    }
     //多少篇文章
     public function Count($where="2>1")
     {

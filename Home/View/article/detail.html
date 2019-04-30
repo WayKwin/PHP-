@@ -44,6 +44,7 @@
           <span class="fly-list-nums"> 
             <a href="#comment"><i class="iconfont" title="回复">&#xe60c;</i> <{$detail.comment_count}></a>
 
+            <!-- 浏览量先默认加一-->
             <i class="iconfont" title="点击数">&#xe60b;</i> <{$detail.read_count}>
           </span>
         </div>
@@ -93,16 +94,23 @@
             <a name="item-1111111111"></a>
             <div class="detail-about detail-about-reply">
               <a class="fly-avatar" href="<{$reply.user_id}>">
-                <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt=" ">
+                <img src="<{$reply.img}>" alt="<{$reply.username}> ">
               </a>
               <div class="fly-detail-user">
                 <a href="" class="fly-link">
                   <cite><{$reply.username}></cite>
-                  <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                  <{if $reply.confirm eq null}>
+                  <{else}>
+                  <i class="iconfont icon-renzheng" title="<{$detail.confirm}>"></i>
+                  <{/if}>
                   <i class="layui-badge fly-badge-vip">VIP1</i>
                 </a>
 
+                <{if $reply.user_id eq $detail.user_id}>
                 <span>(楼主)</span>
+                <{else}>
+                <{/if}>
+
                 <!--
                 <span style="color:#5FB878">(管理员)</span>
                 <span style="color:#FF9E3F">（社区之光）</span>
@@ -111,29 +119,31 @@
               </div>
 
               <div class="detail-hits">
-                <span>2017-11-30</span>
+                <span><{$reply.addate}></span>
               </div>
-              <i class="iconfont icon-caina" title="最佳答案"></i>
+              <!--<i class="iconfont icon-caina" title="最佳答案"></i>-->
             </div>
             <div class="detail-body jieda-body photos">
-              <p>香菇那个蓝瘦，这是一条被采纳的回帖：
-			  <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt=" ">
-			  </p>
+                <div class="layui-col-lg-offset1">
+                  <{$reply.content}>
+                </div>
             </div>
             <div class="jieda-reply">
               <span class="jieda-zan zanok" type="zan">
                 <i class="iconfont icon-zan"></i>
-                <em>66</em>
+                <em><{$reply.praise}></em>
               </span>
               <span type="reply">
                 <i class="iconfont icon-svgmoban53"></i>
-                回复
+                  回复(todo)
               </span>
+              <{if  isset($smarty.session.user) && ($smarty.session.user.uid == $reply.user_id) }>
               <div class="jieda-admin">
-                <span type="edit">编辑</span>
-                <span type="del">删除</span>
-                <!-- <span class="jieda-accept" type="accept">采纳</span> -->
+                <span type="edit">编辑(todo)</span>
+                <span type="del" onclick=" delReply(<{$reply.id}>)">删除</span>
               </div>
+              <{else}>
+              <{/if}>
             </div>
           </li>
           <{/foreach}>
@@ -202,15 +212,40 @@
 <script src="./Public/Home/Fly/layui/layui.js"></script>
 <script src="./Public/jquery.min.js"></script>
 <script>
-
  $("#header").load("?c=Article&a=showHeader");
  $("#panel").load("?c=Article&a=showColumn");
  $("#footer").load("?c=Article&a=showFooter");
  //$("#replay").load("?c=Article&a=replay&article_id=<{$detail.id}>")
-
 </script>
 <script>
-    layui.use(['form','layedit','jquery,element'],function()
+ function delReply(id)
+ {
+
+      var aid = <{$detail.id}>;
+      var rid = id;
+     var info = {"reply_id":rid,"article_id":aid};
+     var msg = JSON.stringify(info);
+     $.ajax({
+         url:'index.php?c=Article&a=deleteReply',
+         type:'post',
+         dataType:'text',// 数据返回的类型
+         data:{data:msg},
+         success:function(retInfo){
+             console.log(retInfo);
+             if(retInfo == 0)
+             {
+                 layer.msg("删除回复失败,请重试");
+             }else if(retInfo == 1)
+             {
+                 layer.msg("删除回复成功",{icon:6});
+                 window.setTimeout("javascript:location.href=location.search", 1000);
+             }
+         }//end success
+     });//end ajax
+ }
+</script>
+<script>
+    layui.use(['form','layedit','jquery','element'],function()
     {
         var form = layui.form;
         var $ = layui.jquery;
@@ -250,7 +285,7 @@
                  }else if(retInfo == 1)
                  {
                      layer.msg("回复成功",{icon:6});
-                     window.setTimeout("javascript:location.href=document.referrer", 2000);
+                     window.setTimeout("javascript:location.href=location.search", 1000);
                  }
                 }//end success
             });//end ajax
@@ -263,12 +298,6 @@
 </script>
 
 <script>
-    // layui.config({
-    //     version: "3.0.0"
-    //     ,base: './Public/Home/Fly/mods/' //这里实际使用时，建议改成绝对路径
-    // // }).extend({
-    //     fly: 'index'
-    // }).use('fly');
     layui.cache.page = '';
     layui.cache.user = {
         username: '游客'

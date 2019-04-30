@@ -11,14 +11,23 @@ final class ArticleController extends BaseController{
     public function index()
     {
         $article_id = $_GET["article_id"];
+
+        ArticleModel::getInstance()->addReadCount($article_id);
         $content=ArticleModel::getInstance()->fetchOneWithJoin($article_id);
         $replys=ArticleModel::getInstance()->fetchAllReply($article_id);
 
-//        print_r($replys);
-//        echo $replys;
         $this->smarty->assign("detail",$content);
         $this->smarty->assign("replys",$replys);
         $this->smarty->display("article/detail.html");
+    }
+    public function deleteReply()
+    {
+       $data = $_POST['data'];
+       $data = (array)json_decode($data);
+       $replyId = $data['reply_id'];
+       $articleId = $data['article_id'];
+       ArticleModel::getInstance()->deleteReplyCount($articleId);
+       echo  ReplyModel::getInstance()->deleteReply($replyId);
     }
     public function reply()
     {
@@ -28,9 +37,12 @@ final class ArticleController extends BaseController{
         $replyInfo=(array)json_decode($msg);
         $replyInfo['addate'] = date('Y-m-d h:i:s', time());
         $replyInfo['praise'] = 0;
+
         $res = ReplyModel::getInstance()->insert($replyInfo);
         if($res)
         {
+            //回复成功增加回复数
+           ArticleModel::getInstance()->addReplyCount($replyInfo['article_id']);
             echo 1;
         }
         else
@@ -40,6 +52,51 @@ final class ArticleController extends BaseController{
 
         //echo $article_id;
 
+    }
+    public function add()
+    {
+        if(isset($_SESSION['user']))
+        {
+            $cateObj =CategoryModel::getInstance();
+            $data = $cateObj->fetchAll();
+            $categorys = CategoryModel::getInstance()->categoryList($data);
+            $this->smarty->assign(
+                'categorys',$categorys
+            );
+            $this->smarty->display("article/add.html");
+        }else{
+            $this->jump("请登录","?c=User&a=login");
+        }
+
+    }
+    public function addArticle()
+    {
+        //没有安全处理
+        if(!isset($_POST['data']))
+        {
+            echo 0;
+            return;
+        }
+        $articleMsg=(array)json_decode($_POST['data'],true);
+
+        //未登录
+        if(!isset($_SESSION['uid']))
+        {
+            echo -1;
+            return;
+        }
+        //加入额外信息
+        $articleMsg['user_id'] =$_SESSION['uid'];
+        $articleMsg['read_count'] = 0;
+        $articleMsg['comment_count'] = 0;
+        $articleMsg['praise'] = 0;
+        $articleMsg['addate'] = date('Y-m-d h:i:s', time());
+        if(ArticleModel::getInstance()->insert($articleMsg))
+        {
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
     public function showHeader()
     {
