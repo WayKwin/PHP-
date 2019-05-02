@@ -130,16 +130,17 @@
             </div>
             <div class="jieda-reply">
               <span class="jieda-zan zanok" type="zan">
-                <i class="iconfont icon-zan"></i>
-                <em><{$reply.praise}></em>
+                  <{$reply.cur_floor}>楼
+                <!--<i class="iconfont icon-zan"></i>-->
+                <!--<em><{$reply.praise}></em>-->
               </span>
-              <span type="reply">
-                <i class="iconfont icon-svgmoban53"></i>
-                  回复(todo)
+              <span  type="reply">
+                <i class="iconfont icon-svgmoban53" onclick="replyFloor(<{$reply.cur_floor}>,'<{$reply.username}>')"></i>
+                  回复
               </span>
               <{if  isset($smarty.session.user) && ($smarty.session.user.uid == $reply.user_id) }>
               <div class="jieda-admin">
-                <span type="edit">编辑(todo)</span>
+                <!--<span type="edit">编辑(todo)</span>-->
                 <span type="del" onclick=" delReply(<{$reply.id}>)">删除</span>
               </div>
               <{else}>
@@ -158,8 +159,9 @@
                 <a class="layui-btn layui-col-lg-offset6" href="?c=User&a=reg">立即注册</a>
               </div>
             <{else}>
+
           <form class="layui-form layui-form-pane" action="">
-            <div class="layui-form-item layui-form-text">
+            <div class="layui-form-item layui-form-text" id="replyArea">
               <div class="layui-input-block">
             <textarea id="content" name="content" lay-verify="" placeholder="请输入内容"  class="layui-textarea fly-editor" style="height: 150px;">
             </textarea>
@@ -245,6 +247,8 @@
  }
 </script>
 <script>
+  //外部函数需要调用内部函数 方法
+  var replyFloor;
     layui.use(['form','layedit','jquery','element'],function()
     {
         var form = layui.form;
@@ -262,6 +266,15 @@
         var index = layedit.build('content',{
             height:200
         });
+        function rf(rid,uname)
+        {
+
+            window.location="#replyArea";
+            var replyFloorHead = "<b><i>回复"+rid+"楼"+uname+':</i></b>';
+            layedit.setContent(index,replyFloorHead);
+        }
+        replyFloor=rf;
+
         form.on('submit(articleAdd)',function(data)
         {
             //富文本编辑器内容用getContent才能获取到

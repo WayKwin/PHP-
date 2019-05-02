@@ -98,6 +98,7 @@ final class ArticleController extends BaseController{
         $articleMsg['comment_count'] = 0;
         $articleMsg['praise'] = 0;
         $articleMsg['addate'] = date('Y-m-d h:i:s', time());
+        $articleMsg['max_floor'] = 0;
         if(ArticleModel::getInstance()->insert($articleMsg))
         {
             echo 1;

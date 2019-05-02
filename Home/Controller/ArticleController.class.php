@@ -14,7 +14,7 @@ final class ArticleController extends BaseController{
 
         ArticleModel::getInstance()->addReadCount($article_id);
         $content=ArticleModel::getInstance()->fetchOneWithJoin($article_id);
-        $replys=ArticleModel::getInstance()->fetchAllReply($article_id);
+        $replys=ArticleModel::getInstance()->fetchAllReply($article_id,0,10,"reply.cur_floor");
 
         $this->smarty->assign("detail",$content);
         $this->smarty->assign("replys",$replys);
@@ -51,10 +51,18 @@ final class ArticleController extends BaseController{
         $msg = $_POST["data"];
         //json返回object强转一下
         $replyInfo=(array)json_decode($msg);
+
+        //更新文章的最大楼层（+1）
+        ArticleModel::getInstance()->addArticleMaxFloor($replyInfo['article_id']);
+
+        $article_id = $replyInfo['article_id'];
+        $max_floor = ArticleModel::getInstance()->fetchOne("id=$article_id")['max_floor'];
+
         $replyInfo['addate'] = date('Y-m-d h:i:s', time());
         $replyInfo['praise'] = 0;
-
+        $replyInfo['cur_floor'] = $max_floor;
         $res = ReplyModel::getInstance()->insert($replyInfo);
+
         if($res)
         {
             //回复成功增加回复数
@@ -107,6 +115,7 @@ final class ArticleController extends BaseController{
         $articleMsg['comment_count'] = 0;
         $articleMsg['praise'] = 0;
         $articleMsg['addate'] = date('Y-m-d h:i:s', time());
+        $articleMsg['max_floor'] = 0;
         if(ArticleModel::getInstance()->insert($articleMsg))
         {
             echo 1;

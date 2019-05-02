@@ -45,6 +45,12 @@ final class ArticleModel extends BaseModel
         $sql = "UPDATE $this->table set comment_count=comment_count+1 WHERE id=$id";
         return $this->pdo->exec($sql);
     }
+    public function addArticleMaxFloor($id)
+    {
+        $sql = "UPDATE $this->table set max_floor=max_floor+1 WHERE id=$id";
+        return $this->pdo->exec($sql);
+    }
+
     public function deleteReplyCount($id)
     {
         $sql = "UPDATE $this->table set comment_count=comment_count-1 WHERE id=$id";
