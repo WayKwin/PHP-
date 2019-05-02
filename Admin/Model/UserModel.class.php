@@ -11,6 +11,11 @@
        $sql =  "SELECT * From {$this->table} ORDER BY id ";
      return $this->pdo->fetchAll($sql);
    }
+     public function fetchOneUserInfo($userId)
+     {
+         $sql = "select user_id as uid, img,confirm,points From  user_info where user_id=$userId";
+         return $this->pdo->fetchOne($sql);
+     }
    public function deleteById($id)
    {
      $sql1 = "DELETE FROM {$this->table} WHERE id=$id";

@@ -252,6 +252,12 @@
         var layedit=layui.layedit;
         var element=layui.element;
         form.render();
+        layedit.set({
+            uploadImage: {
+                url: 'index.php?c=Article&a=uploadImg' //接口url
+                ,type: 'post' //默认post
+            }
+        });
 
         var index = layedit.build('content',{
             height:200

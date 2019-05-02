@@ -10,7 +10,8 @@ final class IndexController extends BaseController
     public function Index()/*对应的action方法 对应 View/Index/index.html*/ {
         // 后台默认展示静态首页 ?c=Index&a=Index
         $this->denyAccess();
-        $this->smarty->assign("name",$_SESSION['name']);
+        $this->smarty->assign("name",$_SESSION['user']['uname']);
+        $this->smarty->assign("head",$_SESSION['user']['img']);
         $this->smarty->display("Index/index.html");
         
     }

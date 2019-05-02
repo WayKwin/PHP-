@@ -62,6 +62,12 @@
             var $ = layui.jquery;
             var layedit=layui.layedit;
             form.render();
+            layedit.set({
+                uploadImage: {
+                    url: '?c=Article&a=uploadImg' //接口url
+                    ,type: 'post' //默认post
+                }
+            });
             var index = layedit.build('content',{
         });
             form.on('submit(articleAdd)',function(data)
@@ -92,7 +98,7 @@
             dataType:'text',// 数据返回的类型
             data:{data:Msg},
             success:function(retInfo){
-            //console.log(retInfo);
+            console.log(retInfo);
             if(retInfo == 1)
         {
             layer.msg('增加文章成功，1秒后返回',{icon:1});

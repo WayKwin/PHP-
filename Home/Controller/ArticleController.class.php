@@ -29,6 +29,22 @@ final class ArticleController extends BaseController{
        ArticleModel::getInstance()->deleteReplyCount($articleId);
        echo  ReplyModel::getInstance()->deleteReply($replyId);
     }
+    public function uploadImg()
+    {
+       //上传文件
+        $content =1;
+        $retInfo = array(
+         "code"=>0,
+            "msg"=>"上传成功",
+            "data"=>array(
+                 "src"=>"./Public/img/vercode.jpg",
+                 "title"=>"这是图片标题"
+            )
+        );
+        $retJson = json_encode($retInfo);
+        header('Content-Type:application/json; charset=utf-8');
+        echo $retJson;
+    }
     public function reply()
     {
         //$article_id = $_GET["article_id"];
@@ -80,13 +96,13 @@ final class ArticleController extends BaseController{
         $articleMsg=(array)json_decode($_POST['data'],true);
 
         //未登录
-        if(!isset($_SESSION['uid']))
+        if(!isset($_SESSION['user']))
         {
             echo -1;
             return;
         }
         //加入额外信息
-        $articleMsg['user_id'] =$_SESSION['uid'];
+        $articleMsg['user_id'] =$_SESSION['user']['uid'];
         $articleMsg['read_count'] = 0;
         $articleMsg['comment_count'] = 0;
         $articleMsg['praise'] = 0;

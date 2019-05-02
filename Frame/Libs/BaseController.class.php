@@ -14,7 +14,7 @@
   }
   protected  function denyAccess()
   {
-     if(!isset($_SESSION['name']))
+     if(!isset($_SESSION['user']))
      {
          $this->jump("请登录","admin.php?c=User&a=Login",1);
      }

@@ -116,13 +116,13 @@ final class UserController extends BaseController{
     }
     public function checkLogin()
     {
-        //初始化返回信息
         $retInfo = array(
-         "flag" =>"0",
-         "name" =>"null",
+            "flag" =>"0",
+            "name" =>"null",
         );
         $msgData= $_POST['loginMsg'];
         $arr = json_decode($msgData,$assoc=true);
+
 
         $username = $arr['username'];
         $password= $arr['password'];
@@ -131,7 +131,6 @@ final class UserController extends BaseController{
 
         //如果没查到 user  $user返回 bool false
         $user = $userObj->fetchOne("username='$username' AND password='$password'");
-        //print_r($user);
         // empty=false
         //用户存在
         if(!empty($user))
@@ -145,8 +144,10 @@ final class UserController extends BaseController{
             {
                 $retInfo['flag'] = "1";
                 $retInfo['name'] = $user["name"] ;
-                $_SESSION['uid'] = $user['id'];
-                $_SESSION['name'] = $user['name'];
+                //找到用户的ID,NAME,头像，积分,认证过信息
+                $user_info = UserModel::getInstance()->fetchOneUserInfo($user['id']);
+                $user_info['uname'] = $user['name'];
+                $_SESSION['user'] = $user_info;
             }
             //更新失败
             else
@@ -156,7 +157,7 @@ final class UserController extends BaseController{
         }
         else
         {
-           $retInfo['flag']="0";
+            $retInfo['flag']="0";
         }
         $result = json_encode($retInfo);
         echo $result;
@@ -167,8 +168,7 @@ final class UserController extends BaseController{
     }
     public function logout()
     {
-        unset($_SESSION['uid']);
-        unset($_SESSION['name']);
+        unset($_SESSION['user']);
         session_destroy();
         //setcookie(session_id(),false);
         $this->jump("您已退出登录","admin.php?c=User&a=login",1);

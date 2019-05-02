@@ -10,6 +10,7 @@ use \Frame\Libs\BaseModel;
 final class ArticleModel extends BaseModel
 {
     protected $table = "article";
+    protected  $reply= "reply";
     public function  fetchWithJoin($where="2>1",$cur=0,$pageSize=10)
     {
        $sql = "select article.*,category.classname,user.name from `$this->table` ";
@@ -20,6 +21,11 @@ final class ArticleModel extends BaseModel
        $sql.="ORDER BY article.id DESC ";
        $sql.="limit $cur,$pageSize";
        return $this->pdo->fetchAll($sql);
+    }
+    public function deleteAllRely($id)
+    {
+        $sql = "DELETE FROM $this->reply WHERE article_id=$id ";
+        $this->pdo->exec($sql);
     }
     public function Count($where)
     {

@@ -160,7 +160,7 @@ final class UserController extends BaseController{
     {
         unset($_SESSION['user']);
         session_destroy();
-        //setcookie(session_id(),false);
+//        setcookie(session_id(),false);
         echo 1;
         //$this->jump("您已退出登录","admin.php?c=User&a=login",1);
     }

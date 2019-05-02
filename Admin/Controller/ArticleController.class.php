@@ -111,6 +111,7 @@ final class ArticleController extends BaseController{
 
          if(ArticleModel::getInstance()->delete("id",$id))
          {
+             ArticleModel::getInstance()->deleteAllRely($id);
             echo 1;
          }
          else
